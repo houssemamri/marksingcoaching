@@ -1,2 +1,0 @@
-class InlineForm < LeadCaptureTool
-end

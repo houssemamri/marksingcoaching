@@ -1,2 +1,0 @@
-class PopUp < LeadCaptureTool
-end
