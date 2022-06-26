@@ -1,0 +1,39 @@
+.container.my-5.py-5
+  = semantic_form_for @course.becomes(Course) do |f|
+    .row
+      .col-12
+        = f.inputs do
+          = f.input :name
+          = f.input :slug
+          = f.input :tag_list, input_html: {value: f.object.tag_list.to_s}
+          = f.input :published
+          = f.input :vimeo_video_id
+          .form-group
+            = f.label :cover
+            - if @course.cover.attachment
+              = image_tag @course.cover.service_url, width: 70 
+            = f.file_field :cover
+          = f.label :description
+          = f.rich_text_area :description
+          = f.input :call_to_action
+    .row.my-5
+      .col-12
+        = f.label :sort
+        .jumbotron.p-3
+          %table
+            %tbody.sortable
+              / sortable target
+              - @course.course_modules.order(:sort).each_with_sortable_id do |course_module, sortable_id|
+                %tr.border{:id => sortable_id}
+                  / Needs id tag on sorting elements
+                  %td.border.p-3
+                    = course_module.name
+    .row
+      .col-12
+        = f.actions do
+          = f.action :submit, :as => :input, :button_html => {  class: 'btn btn-primary' }
+
+:javascript
+  $(function() {
+    $('.sortable').railsSortable();
+  });

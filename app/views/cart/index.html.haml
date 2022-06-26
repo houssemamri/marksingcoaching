@@ -1,0 +1,27 @@
+.container
+  .row.my-3.border-bottom
+    .col-12
+      = render 'shared/header', h1: 'Cart', h2: false, hero_id: 'lead-magnets-hero'
+    
+.container
+  - if @cart.cart_items.empty?
+    .hover-border.my-5.p-5.text-center
+      %p Your Cart is Empty.
+      %a.btn.btn-primary.mt-4{:href => "/marketplace", :type => "button"}
+        Browse the Marketplace
+  - else
+    - @cart.cart_items.each do |item|
+      .row.my-3.border-bottom
+        .col-12
+          %p.font-weight-bold.mb-1= item.cartable.title
+        .col-12
+          = link_to('Remove', cart_item_path(item.id), method: :delete)
+
+.container
+  .row
+    .col-12.col-md-6.offset-md-3
+      .text-right.my-3
+        .badge Total
+        %h2= "$#{ @cart.price_of_items / 100 }"
+      .hover-border.p-3.my-5
+        = render '/payments/form', sign_up_offer: false, content_generator: false, social_media_oto: false, cost: ( @cart.price_of_items / 100 )

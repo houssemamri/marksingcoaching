@@ -1,0 +1,34 @@
+.row.my-5
+  .col-12.col-md-4
+    = image_tag 'podcast_cover.jpeg', class: 'img-fluid'
+  .col-12.col-md-8
+    .my-5
+      .gradient-primary 
+        %h1.font-weight-boldThe Unapologetic Man Podcast
+
+.row.pb-5
+  .col-12
+    %table#podcasts-table.table.table-hover
+      %thead
+        %tr
+          %td
+            Episode
+      %tbody
+        - @podcasts.each do |podcast|
+          %tr
+            %td
+              %a{ href: podcast_path(podcast)}
+                %h5.mb-0
+                  = podcast.title
+              %p.mb-0= podcast.published_on.to_date.to_formatted_s(:long_ordinal)
+              -# %p= podcast.description
+           
+
+:javascript
+  if ( !document.querySelector( '#podcasts-table_wrapper' ) ) {
+    var podcastsTable = $('#podcasts-table').DataTable({ 
+      pageLength: 25,
+      dom: 'Bfrtip',
+      buttons: []
+    });
+  }

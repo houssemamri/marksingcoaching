@@ -1,0 +1,188 @@
+.container
+  .row.mt-5.mb-3
+    .col-3.offset-md-1
+      = image_tag 'coin_magnet.png', class: 'img-fluid'
+
+    .col-9.col-md-7.pt-3.pt-lg-5
+      %h3 Get the
+      %h1.big-text.super-bold.ml-5
+        %span.color-secondary Library Pass
+      %h3 
+        (Access our 
+        %span.color-primary ENTIRE 
+        Library of Lead Magnets)
+      %p.my-2 Our average lead magnet costs around $7 - our Library Pass gives you unprecedented value, saving you hundreds of dollars.
+      %p.my-2 That means you can test multiple lead magnets against each other and determine which one is getting you the highest volume (and most qualified) leads for YOUR business. 
+      %p.my-2 Grab The Library Pass  and save hundreds of dollars on a huge catalogue of winning lead magnets!
+
+- if user_signed_in? && bought_by(current_user)
+  .container.text-center.mb-5.pb-5
+    %p You've already purchased access!
+    %a.btn.btn-primary.py-3.px-5{ href: dashboard_path }
+      Go to Dashboard
+
+- else
+  .container
+    .row
+      .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center
+        .my-3
+          %p.badge.m-0.badge-primary ONLY
+          %h2.m-0.p-0.super-bold.color-secondary
+            $
+            %span.big-text.price-tag 97
+        -# %p.badge.m-0.badge-primary ONE TIME PAYMENT
+        %p.font-weight-bold 7 DAY MONEY BACK GUARANTEE 
+
+  .container
+    .row.pt-2.pb-5
+      .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.mb-5
+        .hover-border.p-3
+          = render '/payments/form', social_media_oto: true, sign_up_offer: false, content_generator: false, cost: 97
+
+
+
+
+
+
+-# .container
+-#   -# = render "marketing/layouts/header"
+
+-# .container
+-#   .row
+-#     .col-12
+-#       %div{ style: "position:relative;padding-top:56.25%;" }
+-#         %iframe#vimeo-player.hover-border{ src: "https://player.vimeo.com/video/428544928", style: "position:absolute;top:0;left:0;width:100%;height:100%;" }
+
+-# .container.my-5
+-#   .row
+-#     .col-12.text-center.mb-3
+-#       .badge.badge-primary HOW IT WORKS
+-#   .row
+-#     .col-2.text-right.text-md-center
+-#       %h2.big-text.super-bold.color-primary 1
+-#     .col-10
+-#       %h2.font-weight-bold
+-#         Pick a
+-#         %span.color-secondary Lead Magnet
+-#       %p
+-#         Our library has hundreds of them already written, designed, and waiting for you.
+
+-#   .row
+-#     .col-2.text-right.text-md-center
+-#       %h2.big-text.super-bold.color-primary 2
+-#     .col-10
+-#       %h2.font-weight-bold
+-#         %span.color-secondary Download
+-#         it, 
+-#         %span.color-secondary Embed
+-#         it, or create a 
+-#         %span.color-secondary Landing Page
+-#       %p
+-#         Our tools enable you to use your Lead Magnet immediately wherever and however you want!
+
+-#   .row
+-#     .col-2.text-right.text-md-center
+-#       %h2.big-text.super-bold.color-primary 3
+-#     .col-10
+-#       %h2.font-weight-bold
+-#         Collect
+-#         %span.color-secondary Leads
+-#       %p
+-#         Build your email list immediately. Don't wait for anything or anyone. Establish relationships, provide value, create customers.
+
+-# .container.mb-5
+-#   .row
+-#     .col-12
+-#       #accordionExample.accordion
+-#         .card
+-#           #headingOne.card-header.collapsed{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-target" => "#collapseOne", "data-toggle" => "collapse"}
+-#             %p.color-primary.font-weight-bold.mb-0
+-#               Is this for me? How do I know it will help me?
+-#           #collapseOne.collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample"}
+-#             .card-body
+-#               %p If:
+-#               %ul
+-#                 %li 
+-#                   You don't want to invest time creating your own Lead Magnets. Any reason is valid here but may include:
+-#                   %ul 
+-#                     %li you want to focus on developing your actual product/service. 
+-#                     %li you want to test your ideas first or you haven't validated your business idea yet.
+-#                     %li you want a wide array of Lead Magnet options.
+-#                 %li 
+-#                   You want simple and elegant tools to use said Lead Magnets. 
+-#                 %li 
+-#                   You want to collect leads at scale. 
+-#                 %li 
+-#                   You want to simplify your entrepreneurial journey.
+-#               %p.mb-0 This is for you. 
+-#         .card
+-#           #headingTwo.card-header.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-target" => "#collapseTwo", "data-toggle" => "collapse", onclick: 'loadLeadMagnets()'}
+-#             %p.color-primary.font-weight-bold.mb-0
+-#               What Lead Magnets do you offer? Can I see a list?
+-#           #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionExample"}
+-#             .card-body
+-#               %p 
+-#                 No doubt. 
+-#                 %a{ href: marketplace_path } Here it is.
+-#               -# #ebook-list-container 
+-#               -#   .text-center
+-#               -#     = image_tag 'spinner.gif', width: 40
+-#               -#     .badge Loading...
+-#         -# .card
+-#         -#   #headingThree.card-header.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-target" => "#collapseThree", "data-toggle" => "collapse"}
+-#         -#     %p.color-primary.font-weight-bold.mb-0
+-#         -#       How customizable are the Landing Pages?
+-#         -#   #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
+-#         -#     .card-body
+-#         -#       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+-#         .card
+-#           #contact.card-header.collapsed{"aria-controls" => "collapseContact", "aria-expanded" => "false", "data-target" => "#collapseContact", "data-toggle" => "collapse"}
+-#             %p.color-primary.font-weight-bold.mb-0
+-#               My question isn't here - can I contact you?
+-#           #collapseContact.collapse{"aria-labelledby" => "contact", "data-parent" => "#accordionExample"}
+-#             .card-body
+-#               %p
+-#                 Of course. Please do. You can email us at 
+-#                 %a{ href: 'mailto:us@123leadmagnets.com', target: '_blank' } 
+-#                   us@123leadmagnets.com
+-#                 or call/text at
+-#                 %a{ href: 'tel:+1-201-834-6550‬' } 
+-#                   ‪+1 (201) 834-6550.
+-#               %p.mb-0 We're here to help - whatever you need.
+
+
+-# .container
+-#   .row
+-#     .col-12
+-#       %h3
+-#         %span.color-primary.font-weight-bold 
+-#           Get unrestricted access for Life.
+-#       %h4
+-#         %span.font-weight-bold We're here to remove your limitations, not set them. 
+-#       %p
+-#         That means access to all the Lead Magnets we currently have or will ever add. 
+-#       %p
+-#         That means unlimited downloads, unlimited Leads, unlimited embeds, unlimited landing pages, unlimited software updates.
+
+-# - if user_signed_in? && bought_by(current_user)
+-#   .container.text-center.mb-5.pb-5
+-#     %p You've already purchased access!
+-#     %a.btn.btn-primary.py-3.px-5{ href: dashboard_path }
+-#       Go to Dashboard
+
+-# - else
+-#   .container
+-#   .container
+-#     .row
+-#       .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center
+-#         %h2.m-0.p-0.super-bold.color-secondary
+-#           $
+-#           %span.big-text.price-tag 197
+-#         %p.badge.m-0.badge-primary ONE TIME PAYMENT
+-#         %p.font-weight-bold 7 DAY MONEY BACK GUARANTEE 
+
+-#   .container
+-#     .row.pt-2.pb-5
+-#       .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.mb-5
+-#         .hover-border.p-3
+-#           = render '/payments/form', social_media_oto: true, sign_up_offer: false, content_generator: false

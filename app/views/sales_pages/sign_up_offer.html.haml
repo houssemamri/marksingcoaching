@@ -1,0 +1,63 @@
+- if current_user.created_at > 5.minutes.ago
+  :javascript
+    fbq('track', 'CompleteRegistration');
+    gtag('event', 'conversion', {'send_to': 'AW-630308685/dva4CJ2Gz-wBEM3-xqwC'});
+
+%script{:src => "https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.0/dist/confetti.browser.min.js"}
+
+.container
+  .row
+    .col-12.text-center.py-5
+      %h1 Congratulations! 
+      %h5.pt-5 Your account is now ready 😁
+      %h5 But before you get started, we have a very special offer for you!
+    .col-12.col-md-6.offset-md-3.text-center
+      %p.py-3 
+        Don't wanna hear it? 
+        %a{ href: dashboard_path } Click here to go to your dashboard.
+
+.container
+  .row
+    .col-12.text-center.my-5
+      %h1.super-bold PUT SPECIAL OFFER HERE
+
+.container
+  .row.pt-2.pb-5
+    .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.mb-5
+      .hover-border.p-3
+        = render '/payments/form', social_media_oto: false, sign_up_offer: true, content_generator: false, cost: 47
+
+:javascript
+  var count = 200;
+  var defaults = {
+    origin: { y: 0.7 }
+  };
+
+  function fire(particleRatio, opts) {
+    confetti(Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(count * particleRatio)
+    }));
+  }
+
+  fire(0.25, {
+    spread: 26,
+    startVelocity: 55,
+  });
+  fire(0.2, {
+    spread: 60,
+  });
+  fire(0.35, {
+    spread: 100,
+    decay: 0.91,
+    scalar: 0.8
+  });
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 25,
+    decay: 0.92,
+    scalar: 1.2
+  });
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 45,
+  });

@@ -1,0 +1,20 @@
+.course-page-course.my-3.px-2{ id: course.slug }
+  .row
+    .col-12
+      -# %a{ href: course_path(course) }
+      %h1.pt-3.pb-2
+        = course.title
+      -# %a.float-right.d-inline.font-weight-bold.color-white{"aria-controls" => "#{course.slug}-container", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "##{course.slug}-container", :role => "button"}
+      -#   view modules
+        -# = octicon 'eye'
+    .col-12
+      .row
+        .col-12
+          .collapsee{ id: "#{course.slug}-container" }
+            %table.table.hover-border
+              %tbody
+                - course.course_modules.order(:sort).each do |cm|
+                  %tr
+                    %th
+                      %a{ href: course_course_module_path(course, cm) }
+                        = cm.title

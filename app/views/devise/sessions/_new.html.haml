@@ -1,0 +1,21 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  - unless resource.email.present?
+    .field.form-group
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, class: "form-control"
+  - else 
+    %label email
+    = f.hidden_field :email, value: resource.email
+    %h4.pb-3
+      = resource.email
+  .field.form-group
+    = f.label :password
+    %br/
+    = f.password_field :password, autocomplete: "off", class: "form-control"
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      = f.label :remember_me
+  .actions.text-center
+    = f.submit "Log in", class: "btn btn-primary py-3 my-3", style: "width: 190px;"

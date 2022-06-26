@@ -1,0 +1,88 @@
+-# .row
+-#   .col-12.col-md-8
+-#     .row
+-#       .col-12
+-#         .row.text-center
+-#           - if @course.cover.attachment
+-#             -# .col-8.offset-2.col-md-6.offset-md-3.col-lg-4.offset-lg-4
+-#             .col-10.offset-1.col-lg-8.offset-lg-2
+-#               = image_tag @course.cover.service_url, class: 'w-50 m-3'
+-#         - if @course.description.present?
+-#           .hover-border.p-5
+-#             = @course.description
+-#       .col-12
+-#         - if bought_by(current_user)
+-#           -# %h4.text-center.pt-5.pb.3
+-#           -#   You have purchased this course! Thank you!
+-#         - else
+-#           .hover-border.p-3.my-5
+-#             = render '/payments/form'
+-#         -# = render 'devise/auth_hybrid_form', course: @course
+        
+-#   .col-12.col-md-4
+-#     .jumbotron.p-3
+-#       %h5.py-3
+-#         Table of Contents
+-#       %ol.table-of-contents
+-#         %li{ class: ( @course_module ? '' : 'font-weight-bold' ) }
+-#           %a{ href: course_path(@course) }
+-#             Overview
+-#         - @course.course_modules.order(:sort).each do |cm|
+-#           %li.my-3{ class: ( @course_module == cm ? 'font-weight-bold' : '' ) }
+-#             %a{ href: course_course_module_path(@course, cm) }
+-#               = cm.name
+-#             .pl-3
+-#               = cm.table_of_contents
+
+
+
+
+-# -#   %table.table
+-# -#     -# %thead
+-# -#     -#   %tr
+-# -#     -#     %th{:scope => "col"} #
+-# -#     -#     %th{:scope => "col"} First
+-# -#     -#     %th{:scope => "col"} Last
+-# -#     -#     %th{:scope => "col"} Handle
+-# -#     %tbody
+-# -#       %tr
+-# -#         %td 
+-# -#           5 interviews with real developers who've worked hard to acquire careers in %tech
+-# -#         %td.text-right.p-0
+-# -#           $500 value
+-# -#       %tr
+-# -#         %td 
+-# -#           50% discount
+-# -#         %td.text-right.p-0
+-# -#           $50 value
+-# -#       %tr
+-# -#         %td 
+-# -#           A free hosted website
+-# -#         %td.text-right.p-0
+-# -#           $216 value
+-# -#       %tr
+-# -#         %td 
+-# -#           Access to a private Facebook Group and Slack Channel
+-# -#         -# %td.text-right.p-0
+-# -#       %tr
+-# -#         %td 
+-# -#           Code Starter Kits so that you can start building your App asap
+-# -#         %td.text-right.p-0
+-# -#           $300 value
+-# -#       %tr
+-# -#         %td.font-weight-bold
+-# -#           total
+-# -#         %td.font-weight-bold.h1.text-right.p-0
+-# -#           %strike
+-# -#             $1000
+-# -# -# .col-6.text-center.pt-5
+-# -# -#   %img.m-auto.w-50{ src: image_path('30dayguarantee.png') }
+-# -# .col-12
+-# -#   %img.float-left.ml-3{ width: 100, src: image_path('30dayguarantee.png') }
+-# -#   .text-right
+-# -#     %h3.h1.brand-primary
+-# -#       %span.h4
+-# -#         all for 
+-# -#       $
+-# -#       %span.business-price-tag.brand-primary.font-weight-bold
+-# -#         47

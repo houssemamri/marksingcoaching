@@ -1,0 +1,129 @@
+= semantic_form_for Payment.new, html: { id: 'payment-form' } do |f|
+
+  = f.inputs do
+    - if current_user
+      .text-center
+        %small= "Signed in as #{current_user.email}."
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :email, value: current_user.email
+    - else 
+      = f.label :email
+      = f.email_field :email, class: "form-control mb-3"
+    = f.label 'Credit or Debit Card'
+
+    #card-element
+    #card-errors{ role: 'alert' }
+
+    - if @lead_magnet
+      = f.hidden_field :lead_magnet_id, value: @lead_magnet.id
+
+    - if @cart
+      = f.hidden_field :cart_id, value: @cart.id
+
+    - if sign_up_offer
+      = f.hidden_field :sign_up_offer, value: true
+
+    - if content_generator
+      = f.hidden_field :content_generator, value: true
+
+    - if social_media_oto
+      %label#exclusive-offer.w-100.m-0.mt-3
+        .jumbotron.m-0.p-3
+          .text-center.mb-3
+            %input{"aria-label" => "Checkbox for following text input", :type => "checkbox", name: 'payment[opted_into_offer]'}
+              %span.font-weight-bold Yes! Give Me the Social Media Marketing Courses too!
+          %p.mb-1
+            %span.font-weight-bold ONE TIME OFFER:
+            Want 30+ videos that help you start with Facebook, Instagram, and TikTok Ads? Add to your order now for
+            %span.font-weight-bold ONLY $29! 
+          .text-center
+            %small
+              This offer is not available at ANY other time or place
+
+    .text-center.mt-3
+      = f.submit 'COMPLETE ORDER NOW', class: 'btn btn-lg px-5 py-3  btn-primary m-auto', data: { disable_with: false }
+
+:javascript
+  $(document).on('DOMContentLoaded', function() {
+    // Create a Stripe client.
+    var stripe = Stripe("#{ENV['STRIPE_PUBLIC']}");
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+      base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function(event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
+
+    // Handle form submission.
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      event.target.querySelector('*[type=submit]').disabled = true
+
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          // Inform the user if there was an error.
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+          event.target.querySelector('*[type=submit]').disabled = false
+        } else {
+          if (#{Rails.env.production?}) {
+            fbq('track', 'Purchase', {currency: "USD", value: #{cost}});
+            gtag('event', 'conversion', {
+              'send_to': 'AW-630308685/VTc3CP284OwBEM3-xqwC',
+              'value': #{cost},
+              'currency': 'USD',
+              'transaction_id': ''
+            });
+          }
+          // Send the token to your server.
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('payment-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'payment[stripeToken]');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
+  })

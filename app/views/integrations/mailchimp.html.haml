@@ -1,0 +1,16 @@
+= render 'shared/header', h1: 'MailChimp Integration', h2: false
+
+.row.my-5
+  .col-12
+    %h3
+      Using MailChimp, you can create tons of marketing automations. 
+    %a{ href: 'https://mailchimp.com/help/getting-started-with-mailchimp/', target: '_blank' }
+      %p.font-italic If you're brand new to MailChimp, you can read about it here.
+
+.row
+  .col-12
+    = semantic_form_for(current_user, url: integrations_update_path) do |f|
+      .field.form-group
+        = f.input :mailchimp_api_key, class: "form-control"
+      .actions
+        = f.submit "Integrate", class: "btn btn-primary"

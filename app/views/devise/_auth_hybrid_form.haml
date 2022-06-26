@@ -1,0 +1,12 @@
+%ul.nav.nav-pills.mb-3{:role => "tablist"}
+  %li.nav-item.m-auto
+    %a.nav-link.active{"data-toggle" => "tab", :href => "#sign_up", :role => "tab"}
+      %small.font-weight-bold.text-uppercase.p-3 Sign Up
+  %li.nav-item.m-auto
+    %a.nav-link{"data-toggle" => "tab", :href => "#log_in", :role => "tab"}
+      %small.font-weight-bold.text-uppercase.p-3 Log In
+.tab-content
+  #sign_up.tab-pane.active{:role => "tabpanel"}
+    = render 'devise/registrations/new'#, course: course
+  #log_in.tab-pane.mt-3{:role => "tabpanel"}
+    = render 'devise/sessions/new'#, course: course

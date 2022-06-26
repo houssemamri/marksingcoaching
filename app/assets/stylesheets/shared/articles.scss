@@ -1,0 +1,25 @@
+article {
+  h3 {
+    font-size: 22px;
+  }
+
+  div {
+    font-size: 18px;
+    color: $black;
+    // line-height: 180%; 
+    // font-size: 20px; 
+    @include media-breakpoint-up(md) { 
+      font-size: 21px;
+    } 
+  }
+}
+
+.article-tile-img {
+  height: 0; 
+  padding-bottom: 65%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 15px;
+  width: 100%;
+}

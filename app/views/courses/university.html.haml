@@ -1,0 +1,26 @@
+#university-hero.hero.dark-bg
+  .container.my-2.my-md-5
+    .row.pt-3.mt-md-5
+      .col-12.text-center
+        .jumbotron
+          -# %img{ width: 150, src: image_url('overview.png') }
+          %h1 University
+          %ul.m-0.p-0
+            %li 200+ Videos
+            %li 100+ E-Books
+            %li Tons of Topics
+            %li Everything For Download
+            %li Constantly Growing
+          .badge.badge-primary.mt-3
+            Coming Soon
+          %h3 Monthly Subscription at $9/month
+          %p.p-0.my-3 or
+          %h5
+            %a{ href: website_development_kit_path }
+              Get immediate access NOW with the Website Development Kit.
+
+.container.my-5
+  .row
+    .col-12
+      = render 'courses/content_table'
+      

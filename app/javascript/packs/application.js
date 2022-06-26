@@ -1,0 +1,5 @@
+require("trix")
+require("@rails/actiontext")
+
+Trix.config.blockAttributes.heading1.tagName = 'h3';
+Trix.config.blockAttributes.default.tagName = 'p'

@@ -1,0 +1,40 @@
+= semantic_form_for @article do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  .row
+    .col-12
+      = f.input :title
+    - if @article.persisted?
+      .col-12
+        = f.input :slug
+    .col-12
+      = f.input :headline
+    .col-12
+      = f.input :time_to_read
+  .row
+    .col-4
+      = f.input :published
+    .col-4
+      = f.input :restricted
+    .col-4
+      = f.input :featurable
+  .row
+    .col-12
+      = f.input :tag_list, input_html: {value: f.object.tag_list.to_s}
+  .form-group
+    = f.label :main_image
+    - if @article.main_image.attachment
+      = image_tag @article.main_image.service_url, width: 300
+    = f.file_field :main_image
+    = f.input :main_image_credits
+  .row
+    .col-12
+      = f.input :description
+    .col-12
+      = f.label :tldr
+      = f.rich_text_area :tldr
+    .col-12
+      = f.label :content
+      = f.rich_text_area :content
+  .text-right.my-3
+    = f.actions do
+      = f.action :submit, :as => :input, :button_html => {  class: 'btn btn-lg btn-primary' }

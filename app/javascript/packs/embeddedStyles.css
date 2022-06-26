@@ -1,0 +1,257 @@
+/* 123 Lead Magnets Widget Styles - Classic */
+#lm-widget-container form {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding: 10px 0 10px 3%
+}
+
+#lm-widget-container .lm-header-container p {
+  margin: 0;
+  font-size: 11px;
+}
+
+#lm-widget-container .lm-header-container p span  {
+  background: #0a9000;
+  color: white;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+#lm-widget-container .lm-header-container h2 {
+  font-weight: bold;
+  padding: 0;
+  margin: 15px 0;
+  font-size: 1.4em;
+}
+
+#lm-widget-container input {
+  flex: 3;
+  border: 1px solid #989d9f;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 5px 0 0 5px;
+}
+
+#lm-widget-container input:focus {
+  border-color: #0a9000;
+  border-radius: 5px 0 0 5px;
+}
+
+#lm-widget-container .button {
+  flex: 1;
+  background-color: #0a9000;
+  border: 0 none;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.23s ease-in-out 0s;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+#lm-widget-container .button:hover {
+  background-color: #087900;
+}
+
+#lm-widget-container .lm-success-message {
+  font-size: 11px;
+  color: green;
+}
+
+#lm-widget-container .lm-failure-message {
+  font-size: 11px;
+  color: red;
+}
+
+#lm-widget-container .small-meta {
+  font-size: 11px;
+}
+
+#lm-widget-container .nowrap {
+  white-space: nowrap;
+}
+
+#lm-widget-container .lm-fieldset {
+  clear: left;
+  position: relative;
+  width: 96%;
+  padding-bottom: 3%;
+  display: flex;
+}
+
+#lm-widget-container .lm-fieldset input {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-indent: 2%;
+}
+
+#lm-widget-container .lm-fieldset select {
+  display: inline-block;
+  width: 99%;
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+
+@media screen and (max-width:400px) {
+  #lm-widget-container .foot {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width:400px) {
+  #lm-widget-container .referralBadge {
+    width: 50%;
+  }
+}
+
+#lm-widget-container div#lm-responses {
+  float: left;
+  top: -1.4em;
+  padding: 0em .5em 0em .5em;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 5%;
+  clear: both;
+}
+
+#lm-widget-container div.response {
+  margin: 1em 0;
+  padding: 1em .5em .5em 0;
+  font-weight: bold;
+  float: left;
+  top: -1.5em;
+  z-index: 1;
+  width: 80%;
+}
+
+#lm-widget-container #lm-error-response {
+  display: none;
+}
+
+#lm-widget-container #lm-success-response {
+  color: #529214;
+  display: none;
+}
+
+#lm-widget-container label.error {
+  display: block;
+  float: none;
+  width: auto;
+  margin-left: 1.05em;
+  text-align: left;
+  padding: .5em 0;
+}
+
+#lm-widget-container #lm-widget-subscribe-form div.lm_inline_error {
+  display: inline-block;
+  margin: 2px 0 1em 0;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  z-index: 1;
+  color: #e85c41;
+}
+
+#lm-widget-container #lm-widget-subscribe-form input.lm_inline_error {
+  border: 2px solid #e85c41;
+}
+
+/* MODALS */
+.lm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lm-modal-container {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 500px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.lm-modal-close {
+  background: transparent;
+  border: 0;
+}
+
+.lm-modal-header .lm-modal-close:before { content: "\2715"; }
+
+.lm-modal-content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(0,0,0,.8);
+}
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+  from { transform: translateY(15%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes mmslideOut {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10%); }
+}
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .lm-modal-overlay {
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .lm-modal-container {
+  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .lm-modal-overlay {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .lm-modal-container {
+  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .lm-modal-container,
+.micromodal-slide .lm-modal-overlay {
+  will-change: transform;
+}

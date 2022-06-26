@@ -1,0 +1,82 @@
+.text-center
+  = render Header::Component.new(title: "Give $10, Get $10 Rewards Program")
+
+.container-fluid.my-3
+  .row
+    .col-12.text-center
+      %p.font-weight-bold.color-secondary
+        = "You've invited #{@referrals_total} friends and #{@referrals_confirmed_count} of them are confirmed."
+
+-# .container-fluid
+-#   .row
+-#     .col-12
+-#       - if !@referred_user.confirmed?
+-#         .badge.badge-success Confirmation email sent to your inbox.
+-#   .row.my-3
+-#     .col-12
+-#       %p.color-secondary.font-weight-bold.p-0.m-0 Invite 5 friends and get
+-#     .col-12
+-#       %h4.font-weight-bold Unlimited Access to Our Lead Magnets
+-#       %p That's all ~200 of the ones we have now and all the ones we'll ever have in the future. They're ready-made and can be used in exchange for leads immediately.
+-#     .col-10
+-#       %p.pb-0.mb-0
+-#         = "#{@referrals_confirmed_count < 5 ? 5 - @referrals_confirmed_count : 0} left"
+-#       - if @referrals_confirmed_count > 4
+-#         .badge.badge-success Congratulations! You've earned UNLIMITED ACCESS to ALL of our Lead Magnets FOR LIFE!
+-#       .progress
+-#         .progress-bar.bg-success{"aria-valuemax" => "5", "aria-valuemin" => "0", "aria-valuenow" => @referrals_confirmed_count, :role => "progressbar", :style => "width: #{ @referrals_confirmed_count < 5 ? @referrals_confirmed_count * 20 : 100 }%"}
+-#     .col-2.text-center
+-#       %h1.super-bold.m-0.p-0 5
+
+-#   .row.my-5
+-#     .col-12
+-#       %p.color-secondary.font-weight-bold.p-0.m-0 Invite 10 friends and get
+-#     .col-12
+-#       %h4.font-weight-bold Our Master Social Media Advertising Course Bundle
+-#       %p Facebook, Instagram, and Tik Tok. A triple whammy. Info you need to take advantage of the platforms today.
+
+-#     .col-10
+-#       %p.pb-0.mb-0
+-#         = "#{@referrals_confirmed_count < 10 ? 10 - @referrals_confirmed_count : 0} left"
+-#       - if @referrals_confirmed_count > 9
+-#         .badge.badge-success Congratulations! You've earned UNLIMITED ACCESS to our Master Social Media Advertising Course Bundle FOR LIFE!
+-#       .progress
+-#         .progress-bar.bg-success{"aria-valuemax" => "10", "aria-valuemin" => "0", "aria-valuenow" => @referrals_confirmed_count, :role => "progressbar", :style => "width: #{ @referrals_confirmed_count < 10 ? @referrals_confirmed_count * 10 : 100 }%"}
+
+-#     .col-2.text-center
+-#       %h1.super-bold.m-0.p-0 10
+
+.container.my-3
+  .hover-border.p-3
+    .row
+      .col-12.mb-3
+        %h4.font-weight-bold Share this URL to get referrals:
+    .copyable-content-container{ style: 'border-radius: 30px;' }
+      .row
+        .col-12.col-md-8.text-center
+          .copyable-content.pt-2
+            = @referred_user.referral_url
+        .col-12.col-md-4
+          .copy-link.btn.btn-outline-primary.btn-block.h-100.align-content-center
+            = octicon "copy", class: 'fa-2x'
+    .row.pt-3
+      .col-4
+        %a.btn.btn-outline-primary.btn-block{target: '_blank', href: "https://www.facebook.com/dialog/share?app_id=281579746351265&display=popup&href=#{@referred_user.referral_url}&quote=#{ url_escaped_share_message(@referred_user.referral_url) }"}
+          -# = octicon "facebook", class: 'fa-2x'
+          Facebook
+      .col-4
+        %a.btn.btn-outline-primary.btn-block{target: '_blank', href: "https://twitter.com/intent/tweet?text=#{ url_escaped_share_message(@referred_user.referral_url) }"}
+          -# = octicon "twitter", class: 'fa-2x'
+          Twitter
+          -# https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/guides/web-intent
+      .col-4
+        %a.btn.btn-outline-primary.btn-block{target: '_blank', href: "mailto:?subject=Unlock Unlimited Lead Magnets with me!&body=#{ share_message(@referred_user.referral_url) }"}
+          -# = octicon "envelope", class: 'fa-2x'
+          Email
+
+.container-fluid.my-5
+  .row
+    .col-12.text-center
+      %p.font-weight-bold
+        Don't want to worry about referrals? 
+        %a.brand-primary{href: marketplace_path } Just Shop Now instead >

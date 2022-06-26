@@ -1,0 +1,30 @@
+.hero
+  .hero-content
+    .container
+      .row.py-5
+        .col-12
+          %h1 Course Modules
+.container.mt-5
+  .row
+    .col-12
+      %table#course-modules-table
+        %thead
+          %tr
+            %th Course
+            %th Name
+            %th
+            %th
+            %th
+        %tbody
+          - @course_modules.order(:course_id, :sort).each do |course_module|
+            %tr
+              %td= course_module.course.name
+              %td= course_module.name
+              %td= link_to 'Show', course_module
+              %td= link_to 'Edit', edit_course_module_path(course_module)
+              %td= link_to 'Destroy', course_module, method: :delete, data: { confirm: 'Are you sure?' }
+
+:javascript
+  if ( !document.querySelector( '.dataTables_wrapper' ) ) {
+    $('#course-modules-table').DataTable({ paging: false, ordering: false });
+  }

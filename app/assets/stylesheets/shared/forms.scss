@@ -1,0 +1,27 @@
+form {
+  #error_explanation {
+    color: red;
+  }
+
+  .inline-errors {
+    color: red;
+    font-weight: 700;
+  }
+
+  .input-group-addon {
+    background: white;
+  }
+}
+
+.form-wrapper {
+  .error {
+    border-color: red;
+  }
+
+  .help-block {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 13px;
+  }
+}

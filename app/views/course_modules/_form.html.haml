@@ -1,0 +1,15 @@
+= semantic_form_for @course_module do |f|
+  = f.inputs do
+    = f.input :course
+    = f.input :name
+    = f.input :vimeo_video_id
+    = f.label :table_of_contents
+    = f.rich_text_area :table_of_contents
+    = f.label :description
+    = f.rich_text_area :description
+    = f.label :content
+    = f.rich_text_area :content
+    = f.input :call_to_action
+  .text-right.my-3
+    = f.actions do
+      = f.action :submit, :as => :input, :button_html => {  class: 'btn btn-lg btn-primary' }

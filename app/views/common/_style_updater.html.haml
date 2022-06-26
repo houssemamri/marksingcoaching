@@ -1,0 +1,12 @@
+%ul#style-updater-tabs.nav.nav-pills.mb-3.mx-auto{:role => "tablist"}
+  %li.nav-item
+    %a#style-raw-tab.nav-link.active{"aria-controls" => "pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-home", :role => "tab"} Raw
+  %li.nav-item
+    %a#style-sharp-tab.nav-link{"aria-controls" => "pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-profile", :role => "tab"} Sharp
+  %li.nav-item
+    %a#style-round-tab.nav-link{"aria-controls" => "pills-contact", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-contact", :role => "tab"} Round
+:javascript
+  $('a[data-toggle="pill"]').on('click', function (e) {
+    var widgetContainerStyleClass = e.target.id
+    $( '#marksingcoaching-examples-container' ).attr( 'class', 'widget-container ' + widgetContainerStyleClass )
+  })

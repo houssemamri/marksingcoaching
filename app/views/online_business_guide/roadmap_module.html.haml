@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-10.col-md-12.text-md-center
+      .badge.p-0.m-0
+        Website Development Kit Roadmap
+      %h1= @roadmap.name
+
+.container
+  .row.my-5
+    .col-12.col-md-3
+      %ul#myTab.nav.nav-pills.text-center.flex-column.mb-3{:role => "tablist", class: "#{@roadmap.slug}-pills" }
+        %li.nav-item
+          %a#introduction-tab.nav-link{ href:  "/online-business-guide/#{@roadmap.slug}" }
+            .badge
+              Home
+        - @roadmap.course_modules.each do |roadmap_module|
+          %li.nav-item
+            %a.nav-link{ class: (@module.slug == roadmap_module.slug ? 'active' : ''), href: "/online-business-guide/#{@roadmap.slug}/#{roadmap_module.slug}"}
+              .badge
+                = roadmap_module.name
+    .col-12.col-md-9
+      .mb-3
+        = @module.description
+      - if @module.vimeo_video_id.present?
+        %div.mb-3{ style: "position:relative;padding-top:56.25%;" }
+          %iframe.hover-border{ src: @module.vimeo_video_id, style: "position:absolute;top:0;left:0;width:100%;height:100%;" }
+      .mb-3
+        = @module.content
+      - if @module.call_to_action.present?
+        .text-center.mb-3
+          %a{ href: @module.call_to_action, taget: '_blank' }
+            .btn.btn-primary.btn-lg.p-3.px-5{ class: @roadmap.slug }
+              BUILD NOW

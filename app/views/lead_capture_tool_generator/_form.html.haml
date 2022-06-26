@@ -1,0 +1,79 @@
+-# might want to kill this
+
+= semantic_form_for @lead_capture_tool do |f|
+  = f.inputs do
+    = f.hidden_field :user_id, value: @lead_capture_tool.user_id
+    = f.hidden_field :lead_magnet_id, value: @lead_capture_tool.lead_magnet_id
+
+    .jumbotron.mb-3.p-3
+      = f.input :name
+
+      - if @lead_capture_tool.persisted? 
+        = f.input :slug
+      - else 
+        %small.font-weight-bold The URL for this Landing Page will be generated. You will be able to update it after the Landing Page is created.
+        %br
+      %small.form-text.text-muted To use your own Domain, you must update your DMS settings with your registrar to point traffic to this landing page.
+
+    .form-group.pt-3
+      .row.border-bottom.my-3
+        .col-12
+          %p.font-weight-bold CONTENT
+      .row
+        .col-12.my-3
+          = f.label :hero_image
+          - if @lead_capture_tool.hero_image.attachment
+            .landing-page-form-hero-preview{ style: "background-image: url(#{@lead_capture_tool.hero_image.service_url});" }
+          = f.file_field :hero_image
+        .col-12
+          = f.input :headline
+          = f.input :sub_headline
+
+          = f.label :body
+          = f.rich_text_area :body
+
+          = f.label :footer
+          = f.rich_text_area :footer
+
+    .form-group.pt-3
+      .row.border-bottom
+        .col-12
+          %p.font-weight-bold STYLES
+      .row.my-3
+        .col-12
+          %small.form-text.text-muted Completely customize the look and feel of your landing pages with basic controls. 
+      -# .row
+      -#   .col-12.col-md-6
+      -#     = f.input :font_primary
+      -#   .col-12.col-md-6
+      -#     = f.input :font_secondary
+      .row
+        .col-6.col-md-3
+          = f.label :headline_color
+          = f.color_field :headline_color, class: 'w-100'
+        .col-6.col-md-3
+          = f.label :subheadline_color
+          = f.color_field :subheadline_color, class: 'w-100'
+        .col-6.col-md-3
+          = f.label :text_color
+          = f.color_field :text_color, class: 'w-100'
+        .col-6.col-md-3
+          = f.label :button_color
+          = f.color_field :button_color, class: 'w-100'
+        .col-6.col-md-3
+          = f.label :background_color
+          = f.color_field :background_color, class: 'w-100'
+
+    .form-group.pt-3
+      .row.border-bottom.my-3
+        .col-12
+          %p.font-weight-bold RETRAFFIC URL
+      .row
+        .col-12
+          = f.input :retraffic_url
+          %small.form-text.text-muted By adding a URL here, your page will be shown to people who opt in to receive your Lead Magnet on the subsequent page. Think of it as being able to build a funnel.
+
+
+  .text-right.my-3
+    = f.actions do
+      = f.action :submit, :as => :input, :button_html => {  class: 'btn btn-lg btn-primary' }

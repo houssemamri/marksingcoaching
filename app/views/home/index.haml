@@ -1,0 +1,9 @@
+.row
+  .col-12
+    %p.p-0.m-0.font-weight-bold="\"#{@quote.body}\""
+    %p.ml-5="- #{@quote.author}"
+
+- if true || current_user.email == 'coachingstudent@email.com'
+  = render 'coaching_dashboard'
+- else
+  %h2.my-5 This coaching dashboard is locked. Anything else can be put in here though for people who haven't signed up for coaching. Maybe other products?

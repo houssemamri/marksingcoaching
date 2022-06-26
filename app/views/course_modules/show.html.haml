@@ -1,0 +1,47 @@
+-# .dark-bg
+.row.pb-md-1
+  .col-10
+    .badge.p-0.m-0.color-secondary
+      = @course_module.course.title
+    %h1.super-bold= @course_module.title
+  -# .col-2.text-right
+  -#   %a{"aria-controls" => "table-of-contents-menu", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#table-of-contents-menu", :role => "button"}
+  -#     %h6.text-transform-uppercase.mt-5
+  -#       = octicon "book", class: "fa-2x"
+  -# = "#{@course_module.course.title} / #{@course_module.title}"
+.row
+  .col-6
+    - if @course_module.previous_module
+      %p.mb-0
+        %a{ href: course_course_module_path(@course_module.course, @course_module.previous_module) }
+          = "< #{@course_module.previous_module.title}"
+  .col-6.text-right
+    - if @course_module.next_module
+      %p.mb-0
+        %a{ href: course_course_module_path(@course_module.course, @course_module.next_module) }
+          = "#{@course_module.next_module.title} >"
+
+.row.py-3
+  .col-12.col-md-4
+    #table-of-contents-menu.collapsee
+      .table-of-contents-container.hover-border
+        .p-3
+          %h5.py-3
+            Table of Contents
+          %ol.table-of-contents
+            -# %li{ class: ( @course_module ? '' : 'font-weight-bold' ) }
+            -#   %a{ href: course_modules_course_public_url(@course_module) }
+            -#     Overview
+            - @course_module.course.course_modules.each do |cm|
+              %li.my-3{ class: ( @course_module == cm ? 'font-weight-bold' : '' ) }
+                %a{ href: course_course_module_path(cm.course, cm) }
+                  = cm.title
+            -# %li
+            -#   %a{ href: course_pages_path(@course) }
+            -#     Edit Your Website
+            -# %li
+            -#   %a{ href: course_path(@course), target: '_blank' }
+            -#     Visit Your Website
+  .col-12.col-md-8
+    .youtube-video-container
+      = raw '<iframe width="560" height="315" src="https://www.youtube.com/embed/lXbeeHPS7Jg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'

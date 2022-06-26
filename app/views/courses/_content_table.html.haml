@@ -1,0 +1,73 @@
+%table#university-table.table.table-hover
+  %thead
+    %tr
+      %th Resource
+      %th 
+      -# %th
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td
+          %a{ href: course_path(course), target: '_blank' }
+            %p.mb-0= course.name
+          .badge.badge-info
+            Course
+
+        %td.details-control
+          = octicon "plus-circle"
+          .content.d-none
+            %table{:border => "0", :cellpadding => "5", :cellspacing => "0", :style => "padding-left:50px;"}
+              %tr
+                = render 'courses/table_of_contents', course: course
+                -# %td
+        -# %td
+    - @ebooks.each do |ebook|
+      %tr
+        %td
+          %a{ href: ebook_path(ebook), target: '_blank' }
+            %p.mb-0= ebook.title
+          .badge.badge-danger
+            E-Book
+          - ebook.tags.sort.each do |tag|
+            .badge.badge-primary
+              = tag
+        %td.details-control
+          = octicon "plus-circle"
+          .content.d-none
+            ebook content
+        -# %td
+        -#   %a{ href: edit_ebook_path(ebook) }
+        -#     edit
+
+:javascript
+  if ( !document.querySelector( '.dataTables_wrapper' ) ) {
+    var table = $('#university-table').DataTable({ ordering: false });
+
+    // Add event listener for opening and closing details
+    $('#university-table tbody').on('click', 'td.details-control', function () {
+      var tr = $(this).closest('tr');
+      var tdi = tr.find("i.fas");
+      var row = table.row(tr);
+
+      if (row.child.isShown()) {
+        // This row is already open - close it
+        row.child.hide();
+        tr.removeClass('shown');
+        tdi.first().removeClass('fa-minus-circle');
+        tdi.first().addClass('fa-plus-circle');
+      }
+      else {
+        // Open this row
+        row.child($(this).find('.content').html()).show();
+        tr.addClass('shown');
+        tdi.first().removeClass('fa-plus-circle');
+        tdi.first().addClass('fa-minus-circle');
+      }
+    });
+
+    table.on("user-select", function (e, dt, type, cell, originalEvent) {
+      if ($(cell.node()).hasClass("details-control")) {
+        e.preventDefault();
+      }
+    });
+  }

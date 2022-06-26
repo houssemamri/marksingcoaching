@@ -1,0 +1,30 @@
+= render 'shared/header', h1: 'Integrations', h2: false
+
+.mt-3
+  .row
+    .col-12
+      .alert.alert-danger
+        Integrations are in public BETA. Please proceed with caution and contact us with any problems.
+  .row.mb-5
+    .col-12.col-md-6.my-3
+      .hover-border.h-100.extra-rounded
+        .integration.integration-active-campaign
+          .p-5.text-center
+            = image_tag 'integrations_ac_logo.png', class: 'img-fluid flex flex-end'
+        .text-center.p-3
+          %a{ href: integrations_active_campaign_path } Integrate Now
+    .col-12.col-md-6.my-3
+      .hover-border.h-100.extra-rounded
+        .integration.integration-mailchimp
+          .p-5.text-center
+            = image_tag 'integrations_mc_logo.png', class: 'w-75 flex flex-end'
+        .text-center.p-3
+          %a{ href: integrations_mailchimp_path } Integrate Now
+    .col-12.col-md-6.my-3
+      .hover-border.h-100.extra-rounded
+        .integration.integration-zapier
+          .p-5.text-center
+            = image_tag 'integrations_zap_logo.png', class: 'w-50 flex flex-end'
+        .text-center.p-3
+          -# %a{ href: integrations_zapier_path } Integrate Now
+          .badge.badge-primary Coming Soon

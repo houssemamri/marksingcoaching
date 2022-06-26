@@ -1,0 +1,213 @@
+.container
+  .row.my-5
+    .col-12
+      .big-text 🌱
+      %h1.color-secondary.super-bold Everything has a start...
+      %h2.color-primary.super-bold Could yours be like ours?
+
+.container
+  .row
+    .col-12
+      %p 
+        123 Lead Magnets provides access to a huge library of ready-made Lead Magnets. It also provides the software tools (like a Landing Page builder) to use them.
+      %p
+        I had the idea for 123 Lead Magnets only after I discovered how to genereate leads... 
+      %p
+        Back then, it was life or death for my business...
+      %p
+        I was trying to sell a diferent, brand new product I spent months building.
+      %p 
+        I had poured my whole soul into it - spending every waking hour thinking about it, coding, designing, copywriting - everything!
+      %p
+        But despite my best efforts, I was struggling with actually getting people to buy it.
+      %p
+        I was only falling deeper into frustration and despair.
+      %p
+        I finally hit rock-bottom when I ran out of all my savings, was already head-deep in credit card debt, and had to pay bills with no job (I quit to pursue my dream) and no functioning business.
+      %p
+        This meant I couldn't keep developing my product or even pay the existing costs of keeping it running.
+      %p 
+        As you can imagine, I was in bad shape and desperate, but I wasn't ready to give up on my dream of building a profitable online business.
+      %p 
+        I also refused to give up on the customers I did have! I couldn't let them down - I had to provide them with value for trusting me!
+      %p
+        I started looking for answers... I became obsessed with collecting leads.
+      %p 
+        I decided to focus on building marketing funnels... 
+      %p 
+        I also discovered that there were ready-made Lead Magnets I could use to bring people in and convert them.
+      %p
+        After my first couple attempts, I started to get a handle on things... eventually, everything changed!
+      %p 
+        I finally figured out how to:
+      %ul
+        %li
+          Start relationships with people online, and convert them from leads to customers over time
+        %li
+          Provide value upfront and nurturing my leads lead to huge returns
+        %li
+          scale my outreach by building simple, customizable, testable Landing Pages
+      %p Because I discovered how to use Lead Magnets to serve as the floor for my value ladder, I was able to:
+      %ul
+        %li 
+          Suddenly collect more leads than I was ever able to
+        %li 
+          Not only recover my losses and huge time investment, but become profitable
+        %li 
+          Share this knowledge, capacity, and technology with others
+      %p 
+        Now I'm fulfilled - I get to do what I love! I build profitable online products that provide value and save people time, money, and heartache. I never have to worry about collecting leads for my business ventures ever again.
+      %p
+        It's why I'm so passionate about "123 Lead Magnets" - you can experience building profitable online presences too!
+      %p
+        Having collected so many ready-made Lead Magnets, I offer you my library.
+      %p.text-right
+        = "- Lewaa Bahmad, Founder"
+
+
+
+
+
+
+
+
+
+
+
+
+.container.my-5
+  .row
+    .col-12.text-center.mb-3
+      .badge.badge-primary HOW IT WORKS
+  .row
+    .col-2.text-right.text-md-center
+      %h2.big-text.super-bold.color-primary 1
+    .col-10
+      %h2.font-weight-bold
+        Pick a
+        %span.color-secondary Lead Magnet
+      %p
+        Our library has hundreds of them already written, designed, and waiting for you.
+
+  .row
+    .col-2.text-right.text-md-center
+      %h2.big-text.super-bold.color-primary 2
+    .col-10
+      %h2.font-weight-bold
+        %span.color-secondary Download
+        it, 
+        %span.color-secondary Embed
+        it, or create a 
+        %span.color-secondary Landing Page
+      %p
+        Our tools enable you to use your Lead Magnet immediately wherever and however you want!
+
+  .row
+    .col-2.text-right.text-md-center
+      %h2.big-text.super-bold.color-primary 3
+    .col-10
+      %h2.font-weight-bold
+        Collect
+        %span.color-secondary Leads
+      %p
+        Build your email list immediately. Don't wait for anything or anyone. Establish relationships, provide value, create customers.
+
+.container.mb-5
+  .row
+    .col-12
+      #accordionExample.accordion
+        .card
+          #headingOne.card-header.collapsed{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-target" => "#collapseOne", "data-toggle" => "collapse"}
+            %p.color-primary.font-weight-bold.mb-0
+              Is this for me? How do I know it will help me?
+          #collapseOne.collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample"}
+            .card-body
+              %p If:
+              %ul
+                %li 
+                  You don't want to invest time creating your own Lead Magnets. Any reason is valid here but may include:
+                  %ul 
+                    %li you want to focus on developing your actual product/service. 
+                    %li you want to test your ideas first or you haven't validated your business idea yet.
+                    %li you want a wide array of Lead Magnet options.
+                %li 
+                  You want simple and elegant tools to use said Lead Magnets. 
+                %li 
+                  You want to collect leads at scale. 
+                %li 
+                  You want to simplify your entrepreneurial journey.
+              %p.mb-0 This is for you. 
+        .card
+          #headingTwo.card-header.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-target" => "#collapseTwo", "data-toggle" => "collapse", onclick: 'loadLeadMagnets()'}
+            %p.color-primary.font-weight-bold.mb-0
+              What Lead Magnets do you offer? Can I see a list?
+          #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionExample"}
+            .card-body
+              %p 
+                No doubt. Here it is:
+              #ebook-list-container 
+                .text-center
+                  = image_tag 'spinner.gif', width: 40
+                  .badge Loading...
+        -# .card
+        -#   #headingThree.card-header.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-target" => "#collapseThree", "data-toggle" => "collapse"}
+        -#     %p.color-primary.font-weight-bold.mb-0
+        -#       How customizable are the Landing Pages?
+        -#   #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
+        -#     .card-body
+        -#       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        .card
+          #contact.card-header.collapsed{"aria-controls" => "collapseContact", "aria-expanded" => "false", "data-target" => "#collapseContact", "data-toggle" => "collapse"}
+            %p.color-primary.font-weight-bold.mb-0
+              My question isn't here - can I contact you?
+          #collapseContact.collapse{"aria-labelledby" => "contact", "data-parent" => "#accordionExample"}
+            .card-body
+              %p
+                Of course. Please do. You can email us at 
+                %a{ href: 'mailto:us@123leadmagnets.com', target: '_blank' } 
+                  us@123leadmagnets.com
+                or call/text at
+                %a{ href: 'tel:+1-201-834-6550‬' } 
+                  ‪+1 (201) 834-6550.
+              %p.mb-0 We're here to help - whatever you need.
+
+
+
+
+
+
+.container
+  .row
+    .col-12
+      %h3
+        %span.color-primary.font-weight-bold 
+          Get unrestricted access for Life.
+      %h4
+        %span.font-weight-bold We're here to remove your limitations, not set them. 
+      %p
+        That means access to all the Lead Magnets we currently have or will ever add. 
+      %p
+        That means unlimited downloads, unlimited Leads, unlimited embeds, unlimited landing pages, unlimited software updates.
+
+- if user_signed_in? && bought_by(current_user)
+  .container.text-center.mb-5.pb-5
+    %p You've already purchased access!
+    %a.btn.btn-primary.py-3.px-5{ href: dashboard_path }
+      Go to Dashboard
+
+- else
+  .container
+  .container
+    .row
+      .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center
+        %h2.m-0.p-0.super-bold.color-secondary
+          $
+          %span.big-text.price-tag 97
+        %p.badge.m-0.badge-primary ONE TIME PAYMENT
+        %p.font-weight-bold 7 DAY MONEY BACK GUARANTEE 
+
+  .container
+    .row.pt-2.pb-5
+      .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.mb-5
+        .hover-border.p-3
+          = render '/payments/form', social_media_oto: false, sign_up_offer: false, content_generator: false, cost: 97

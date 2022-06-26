@@ -1,0 +1,13 @@
+.hero
+  .hero-content
+    .container
+      .row.py-5
+        .col-12
+          .badge.badge-secondary
+            editing
+          %h1
+            = "#{@course_module.course.name} / #{@course_module.name}"
+.container.mt-5
+  .row
+    .col-12
+      = render 'form', course_module: @course_module

@@ -1,0 +1,113 @@
+= render Header::Component.new(title: "User Settings")
+
+.container-fluid
+  .row
+    .col-12
+      .section-header
+        %h3 Update Password
+    .col-12.col-md-5
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .form-group.d-none
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .form-group
+          = f.label :password
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+          - if @minimum_password_length
+            .form-text.text-muted
+              = @minimum_password_length
+              characters minimum
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+        .form-group
+          = f.label :current_password
+          = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+          .form-text.text-muted
+            (we need your current password to confirm your changes)
+        .actions
+          = f.submit "Update Password", class: 'btn btn-primary' 
+    .d-none
+      %h3 Cancel my account
+      %p
+        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+      = link_to "Back", :back
+
+  -# %script{:src => "https://js.stripe.com/v3/"}
+  -# %script
+  -#   var stripe = Stripe( "#{ ENV['STRIPE_CLIENT'] }" );
+  -#   var elements = stripe.elements();
+  -#   setUpPlanForm()
+
+
+  -# .row
+  -#   .col-12
+  -#     .section-header.my-3
+  -#       Manage Plan
+  -# .row
+  -#   - if ( resource.plan_active )
+  -#     - if !resource.plan_renewing
+  -#       .col-12
+  -#         %h5.my-3
+  -#           You have requested that your plan be canceled. We are sorry to see you go. 
+  -#     - else
+  -#       .col-12
+  -#         #nav-tab.nav.nav-tabs{:role => "tablist"}
+  -#           %a#nav-status-tab.nav-item.nav-link.active{"aria-controls" => "nav-status", "aria-selected" => "true", "data-toggle" => "tab", :href => "#nav-status", :role => "tab"} Status
+  -#           %a#nav-cancel-tab.nav-item.nav-link{"aria-controls" => "nav-cancel", "aria-selected" => "false", "data-toggle" => "tab", :href => "#nav-cancel", :role => "tab"} Cancel
+  -#         #nav-tabContent.tab-content
+  -#           #nav-status.tab-pane.fade.show.active{"aria-labelledby" => "nav-monthly-tab", :role => "tabpanel"}
+  -#             %h5.brand-primary.my-3
+  -#               You are currently enrolled in the Business Tier Plan.
+  -#           #nav-cancel.tab-pane.fade{"aria-labelledby" => "nav-annually-tab", :role => "tabpanel"}
+  -#             .my-3
+  -#               %form{ action: '/leads', method: 'post' }
+  -#                 = hidden_field_tag :authenticity_token, form_authenticity_token
+  -#                 %input{type: "hidden", name: 'lead[email]', value: resource.email }
+  -#                 %input{type: "hidden", name: 'lead[lead_type]', value: 'cancel_plan' }
+  -#                 .form-group
+  -#                   %label{:for => "why-cancel"} Why do you wish to cancel your plan? How can we do better?
+  -#                   %textarea#why-cancel.form-control{:rows => "3", name: 'lead[additional_information]'}
+  -#                 %button.btn.btn-danger.mb-2{:type => "submit"} Cancel Plan
+  -#   - else
+  -#     .col-12
+  -#       %p
+  -#         Upgrade to Business Tier:
+  -#     .col-12.col-md-5
+  -#       %nav
+  -#         #nav-tab.nav.nav-tabs{:role => "tablist"}
+  -#           %a#nav-monthly-tab.nav-item.nav-link.active{"aria-controls" => "nav-monthly", "aria-selected" => "true", "data-toggle" => "tab", :href => "#nav-monthly", :role => "tab"} Monthly
+  -#           %a#nav-annually-tab.nav-item.nav-link{"aria-controls" => "nav-annually", "aria-selected" => "false", "data-toggle" => "tab", :href => "#nav-annually", :role => "tab"} Annually
+  -#       #nav-tabContent.tab-content
+  -#         #nav-monthly.tab-pane.fade.show.active{"aria-labelledby" => "nav-monthly-tab", :role => "tabpanel"}
+  -#           .text-center.py-5
+  -#             .business-price-tag.brand-primary.d-inline
+  -#               $10 
+  -#             %h5.d-inline
+  -#               \/ month
+  -#             %br
+  -#             %small
+  -#               pay $7.50 a month with an annual subscription
+  -#         #nav-annually.tab-pane.fade{"aria-labelledby" => "nav-annually-tab", :role => "tabpanel"}
+  -#           .text-center.py-5
+  -#             .business-price-tag.brand-primary.d-inline
+  -#               $7.50 
+  -#             %h5.d-inline
+  -#               \/ month
+  -#             %br
+  -#             %small
+  -#               billed as $90 per year (for $30 savings)
+  -#     .col-12.col-md-5.offset-md-1.mt-md-5.pt-md-5
+  -#       #plan-form
+  -#         %form#payment-form{:action => "/charge", :method => "post"}
+  -#           .form-group
+  -#             %label{:for => "card-element"}
+  -#               Credit or debit card
+  -#             #card-element.w-100
+  -#             #card-errors{:role => "alert"}
+  -#           %button.btn.btn-primary Upgrade

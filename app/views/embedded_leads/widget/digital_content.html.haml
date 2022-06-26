@@ -1,0 +1,23 @@
+.container.h-100{ style: 'max-width: 560px;'}
+  .row.align-content-center.h-100
+    - if @embeddable.is_a? LeadMagnet
+      - if @embeddable.cover.attachment
+        .col-5.col-md-4.text-center
+          = image_tag @embeddable.cover.service_url, style: 'width: 100%; max-width: 160px;'
+        .col-7.col-md-8{ style: 'background: white'}
+          .badge.p-0.m-0
+            Free E-book
+          %h1= @embeddable.title
+          = render '/leads/form'
+      - else
+        .col-12
+          .badge.p-0.m-0
+            Free E-book
+          %h1= @embeddable.title
+          = render '/leads/form'
+    - else
+      .col-12
+        .badge.p-0.m-0
+          Free Checklist
+        %h1= @embeddable.headline
+        = render '/leads/form'

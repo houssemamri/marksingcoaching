@@ -1,0 +1,38 @@
+.roadmap-course-carousel.carousel.slide{id: "#{course.slug}-carousel", "data-ride" => "carousel"}
+
+  -# %ol.carousel-indicators
+  -#   %li.active{"data-slide-to" => "0", "data-target" => "##{course.slug}-carousel"}
+  -#   %li{"data-slide-to" => "1", "data-target" => "##{course.slug}-carousel"}
+  -#   %li{"data-slide-to" => "2", "data-target" => "##{course.slug}-carousel"}
+
+  .carousel-inner
+    .carousel-item.active
+      .d-block.w-100.text-center
+        %h5 Overview
+        %p
+        - if course.vimeo_video_id.present?
+          %div{ style: "position:relative;padding-top:56.25%;" }
+            %iframe.hover-border{ src: "https://player.vimeo.com/video/#{course.vimeo_video_id}", style: "position:absolute;top:0;left:0;width:100%;height:100%;" }
+        -# .carousel-caption.d-none.d-md-block
+        -#   %h5 Overview
+        -#   %p ...
+    - course.course_modules.order(:sort).each do |cm|
+      .carousel-item
+        .d-block.w-100.text-center
+          %h5= cm.name
+          %p= cm.table_of_contents
+          - if cm.vimeo_video_id.present?
+            %div{ style: "position:relative;padding-top:56.25%;" }
+              %iframe.hover-border{ src: "https://player.vimeo.com/video/#{cm.vimeo_video_id}", style: "position:absolute;top:0;left:0;width:100%;height:100%;" }
+
+  %a.carousel-control-prev{"data-slide" => "prev", :href => "##{course.slug}-carousel", :role => "button"}
+    %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.carousel-control-next{"data-slide" => "next", :href => "##{course.slug}-carousel", :role => "button"}
+    %span.carousel-control-next-icon{"aria-hidden" => "true"}
+    %span.sr-only Next
+
+
+-# %ol.table-of-contents
+-#   %li
+-#     %a{ href: course_path(course) }

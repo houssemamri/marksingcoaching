@@ -1,0 +1,27 @@
+%head
+  %link{:href => "https://www.marksingcoaching.io/icon.png", :rel => "icon"}/
+  = csrf_meta_tags
+  -# = favicon_link_tag 'logo_dark.svg'
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+  = render "layouts/meta_tags"
+
+  = stylesheet_link_tag    'application', media: 'all'
+  = javascript_include_tag 'application'
+
+  - if @needs_trix
+    = javascript_pack_tag 'application'
+
+  / This site is converting visitors into subscribers and customers with TrustPulse - https://trustpulse.com
+  -# %script{:async => "", "data-account" => "1811", :src => "https://a.trstplse.com/app/js/api.min.js", :type => "text/javascript"}
+  / / TrustPulse
+  -# %script{:async => "", "data-uid" => "1f6256b452", :src => "https://dedicated-musician-3358.ck.page/1f6256b452/index.js"}
+
+  - if @needs_datatables
+    = stylesheet_link_tag '//cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-flash-1.5.1/b-html5-1.5.1/datatables.min.css'
+    = javascript_include_tag '//cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-flash-1.5.1/b-html5-1.5.1/datatables.min.js'
+    -# = stylesheet_link_tag '//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'
+    -# = javascript_include_tag '//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'
+
+  - if @needs_stripe
+    %script{:src => "https://js.stripe.com/v3/"}

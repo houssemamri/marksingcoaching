@@ -1,0 +1,27 @@
+- if @landing_page.hero_image.attachment
+  %div.m-auto{ style: 'max-width: 1500px' }
+    .landing-page-form-hero-preview.w-100{ style: "height: 350px;background-image: url(#{@landing_page.hero_image.service_url});" }
+
+.container.mt-3.mb-5
+  .row.text-center
+    .col-12.my-5
+      %h1.font-weight-bold{ style: "color: #{@landing_page.headline_color};"}
+        = @landing_page.headline
+      %h2.font-weight-bold{ style: "color: #{@landing_page.subheadline_color};"}
+        = @landing_page.sub_headline
+  
+  #content{ style: "color: #{@landing_page.text_color};"}
+    .row
+      .col-12
+        = @landing_page.body
+
+    .row
+      .col-12.col-md-6.offset-md-3.my-3
+        .badge FREE GUIDE
+        %h3= @ebook.title
+        = render '/leads/form'
+        -# = raw @landing_page.ebook.embed_code(@landing_page.user)
+
+    .row
+      .col-12
+        = @landing_page.footer

@@ -1,0 +1,38 @@
+
+!!!
+%html
+  = render 'layouts/shared/head'
+
+  %body
+    .container
+      .row
+        .col-6
+          .mt-3
+            %a.font-weight-bold.color-white{ href: root_path }
+              Mark Sing Coaching
+        .col-6.text-right.my-3
+          - if current_user
+            %a.mx-3{ href: dashboard_path }= "Signed in as #{current_user.email}"
+          - else
+            %a{ href: new_user_session_path } Log in
+            %a.btn.btn-outline-primary.btn-sm.mx-3{ href: new_user_registration_path } Sign up
+          %a{"aria-controls" => "#mobile-menu", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#mobile-menu", :role => "button"}
+            = octicon 'three-bars', height: 24
+        .col-12
+          #mobile-menu.collapse
+            = render 'layouts/shared/sidebar'
+
+      .row
+        .col-12
+          -# #dashboard-sidebar.d-none.d-md-block
+          -#   .w-100.text-center
+          -#     %a{ href: root_path }
+          -#       = inline_svg_tag 'logo_dark.svg', width: 70
+          -#   = render 'layouts/shared/sidebar'
+          #dashboard-main
+            .text-right
+            = render 'layouts/flash_messages'
+            .py-4
+              = yield
+    = render 'layouts/shared/footer'
+    = render 'layouts/scripts/index'

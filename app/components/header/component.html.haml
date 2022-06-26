@@ -1,0 +1,8 @@
+.container-fluid
+  .row.mb-5
+    .col-12
+      %h1.super-bold= @title
+    - if @underlink
+      .col-12
+        %a{ href: library_path, role: "tab" }
+          %p Go to your Library instead >

@@ -1,0 +1,13 @@
+-# .row
+-#   -# .col-12
+-#   -#   .fb-login-button{"data-auto-logout-link" => "false", "data-button-type" => "continue_with", "data-layout" => "default", "data-size" => "large", "data-use-continue-as" => "true"}
+
+-#   .col-12.text-center.border-top.mt-3.pt-3
+-#     - if devise_mapping.omniauthable?
+-#       - resource_class.omniauth_providers.each do |provider|
+-#         - if provider == :facebook
+-#           = link_to image_tag("continue_with_facebook.png", class: 'w-50'), omniauth_authorize_path(resource_name, provider)
+-#         -#   = link_to 'Sign in with Google', omniauth_authorize_path(resource_name, provider)
+-#         -# - if provider == :stripe_connect
+-#         -#   -# = link_to image_tag('connect_with_stripe.png', class: 'mx-auto mb-2 session-button' ), omniauth_authorize_path(resource_name, provider)
+-#         -# = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)

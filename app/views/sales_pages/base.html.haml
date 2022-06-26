@@ -1,0 +1,65 @@
+-# .container
+-#   .row.text-right
+-#     .col-12
+-#       #fb-root
+-#       %script{:async => "", :crossorigin => "anonymous", :defer => "defer", :src => "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"}
+-#       .fb-share-button{"data-href" => "https://www.123leadmagnets.com/", "data-layout" => "button_count", "data-size" => "small"}
+-#         %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.123leadmagnets.com%2F&src=sdkpreparse", :target => "_blank"}
+-#   .row.text-center.my-5
+-#     .col-12
+-#       %h2.super-bold HUNDREDS OF LEAD MAGNETS
+-#       %p.font-weight-bold.color-primary Make our HUGE library YOURS
+-#     .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center
+-#       = image_tag 'lead_magnets_on_3_laptops.png', class: 'w-50'
+-#     .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center.mt-3
+-#       #carouselExampleSlidesOnly.carousel.slide{"data-ride" => "carousel", "data-interval" => "2500"}
+-#         .carousel-inner.text-center
+-#           - @ebooks.each_slice(5) do |ebooks|
+-#             .carousel-item{ class: ebooks.first == @ebooks.first ? 'active' : '' }
+-#               %table.table.overflow-hidden.hover-border
+-#                 %tbody
+-#                   - ebooks.each do |ebook|
+-#                     %tr
+-#                       %th
+-#                         = ebook
+
+-# .container
+-#   .row.text-center.my-5
+-#     .col-12
+-#       %h2.super-bold ALL THE TOOLS YOU NEED
+-#       %h4 Widgets, Pop ups, Landing Pages
+-#     .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.text-center
+-#       .mx-5.my-3
+-#         = image_tag 'all_mockup.png', class: 'img-fluid'
+
+-# - if user_signed_in? && bought_by(current_user)
+-#   .container.text-center.mb-5.pb-5
+-#     %p You've already purchased access!
+-#     %a.btn.btn-primary.py-3.px-5{ href: dashboard_path }
+-#       Go to Dashboard
+
+-# - else
+-#   .container
+-#     .row.text-center.my-5
+-#       .col-12
+-#         %h2.super-bold NO RISK
+-#         %h4.font-weight-bold with our 7 DAY MONEY BACK GUARANTEE 
+
+-#   .container
+-#     .row.text-center
+-#       .col-12
+-#         %h4
+-#           %span.badge.badge-primary ONE TIME FEE
+-#         %h4
+-#           %span.badge none of that pesky monthly crap!
+-#       .col-12
+-#         %h2.m-0.p-0.d-inline.super-bold
+-#           $
+-#         %h2.m-0.p-0.d-inline
+-#           %span.big-text.super-bold 97
+
+-#   .container
+-#     .row.pt-2.pb-5
+-#       .col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.mb-5
+-#         .hover-border.p-3
+-#           = render '/payments/form'

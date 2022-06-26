@@ -1,0 +1,32 @@
+.container
+  .row.py-3.py-md-5.align-content-center.text-center
+    .col-12
+      %h1.super-bold
+        Thank you!
+      %h5 Your business is highly valued and we strive to serve.
+  .row
+    .col-12.col-md-8.offset-md-2
+      %p Here is your receipt and payment details:
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %td.font-weight-bold Purchase ID
+            %td= @payment.id
+          %tr
+            %td.font-weight-bold Cost
+            %td= "$#{@payment.amount / 100}"
+
+.container.py-5
+  .row
+    - if current_user
+      .col-12.text-center
+        %a.btn.btn-primary.py-3.px-5{ href: library_path }
+          Go to Your Library
+        %br
+        %a.mt-3{ href: dashboard_path }
+          Or go to Dashboard >
+    - else 
+      .col-12.col-sm-8.offset-sm-2.col-md-6.offset-md-3
+        %h2 Set a password to access your new account
+        = render 'devise/registrations/new'
+        %a{ href: new_user_session_path }

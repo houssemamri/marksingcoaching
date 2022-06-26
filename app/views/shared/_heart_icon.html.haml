@@ -1,0 +1,7 @@
+%a{ class: "favorite-link-#{ favoritable_id }", 
+    href: "#",
+    data: { "ebook-id": favoritable_id } }
+  - if @favorite
+    = octicon "heart", height: 36, class: "fa-2x", fill: 'red', onclick: 'toggleFavorite(event)'
+  - else
+    = octicon "heart", height: 36, type: 'regular', onclick: 'toggleFavorite(event)'

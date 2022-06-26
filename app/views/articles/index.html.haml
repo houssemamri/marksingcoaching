@@ -1,0 +1,91 @@
+- content_for :meta_title, "Articles | #{DEFAULT_META["meta_title"]}"
+- content_for :meta_description, "All of the Mark Sing Coaching Articles searchable in one place."
+
+-# = render Header::Component.new(title: "Articles")
+.row
+  .col-12.text-center
+    .my-5
+      .gradient-primary 
+        %h1.font-weight-boldThe Articles
+
+#articles
+  .container
+    .row
+      - @articles.each do |article|
+        .col-12.col-md-6.my-3
+          %a.w-100.my-3{ href: article_path(article) }
+            .hover-border
+              = image_tag 'stock_2.jpg', class: 'img-fluid'
+              - if article.main_image.attachment
+                = image_tag(article.main_image.service_url, class: 'img-fluid')
+                -# %ul.meta
+                -#   %li
+                -#     Posted By:
+                -#     %a{:href => "#"} Admin
+                -#   %li 03 June, 2023
+              %h4.m-3
+                = article.title
+    -# .row
+    -#   .col-12
+    -#     %table#article-table.table.table-hover
+    -#       %thead
+    -#         %tr
+    -#           %th Article
+    -#           -# %th
+    -#       %tbody
+    -#         - @articles.each do |article|
+    -#           %tr
+    -#             %td
+    -#               %a{ href: article_path(article), target: '_blank' }
+    -#                 %p.mb-0= article.title
+    -#                 %small= article.headline
+    -#             -# %td
+
+    -#     :javascript
+    -#       if ( !document.querySelector( '.dataTables_wrapper' ) ) {
+    -#         var table = $('#article-table').DataTable({ ordering: false });
+    -#       }
+-# - @articles.each do |article|
+-#   .col-12.col-md-6.my-3
+-#     %a.article-card-link{ href: article_path(article) }
+-#       .article-card.w-100
+-#         - if article.main_image.attachment
+-#           .article-card-img{ style: "background-image: url(#{ image_path(article.main_image.service_url) });"} 
+-#         .card-body
+-#           %h5
+-#             %span.background-white.p-1
+-#               = article.title
+-#           %p.card-text 
+-#             %span.background-white.p-1
+-#               = article.headline
+
+
+-# .container
+-#   = link_to 'New Article', new_article_path
+-# .container.mt-5
+-#   .row
+-#     .col-12
+-#       %table#articles-table
+-#         %thead
+-#           %tr
+-#             %th Title
+-#             %th Slug
+-#             %th
+-#             %th
+-#             %th
+-#         %tbody
+-#           - @articles.order(:title).each do |article|
+-#             %tr
+-#               %td= article.title
+-#               %td
+-#                 %p= article.slug
+-#                 %small= article.headline
+-#               %td= link_to 'Show', article
+-#               %td= link_to 'Edit', edit_article_path(article)
+-#               %td= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
+
+-# :javascript
+-#   if ( !document.querySelector( '.dataTables_wrapper' ) ) {
+-#     $('#articles-table').DataTable({ paging: false, ordering: false });
+-#   }
+

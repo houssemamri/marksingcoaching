@@ -1,0 +1,15 @@
+.container
+  .row.align-content-center.py-3
+    .col-10
+      .mb-3
+        .badge.badge-primary Editing
+        %h1.super-bold
+          = @lead_capture_tool.name
+        %p
+          for: 
+          %span.font-weight-bold= @lead_capture_tool.lead_magnet.title
+
+.container
+  .row
+    .col-12
+      = render '/lead_capture_tools/form'

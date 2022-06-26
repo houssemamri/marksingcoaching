@@ -1,0 +1,16 @@
+- if @lead.landing_page && @lead.landing_page.retraffic_url
+  .container-fluid{ style: 'height: 100vh;' }
+    .row.align-content-center{ style: 'height: 20vh;' }
+      .col-12.text-center
+        %p Thank you! 
+        %a.btn.btn-outline-primary{ href: "https://drive.google.com/file/d/#{@lead.resourceable.view_url}/view", target: '_blank' }
+          download guide
+    .row{ style: 'height: 80vh;' }
+      %iframe.h-100.w-100.border-0{src: @lead.landing_page.retraffic_url}
+- else
+  .container.h-100
+    .row.align-content-center.h-100
+      .col-12.text-center
+        %h1 Thank you! 
+        %a.btn.btn-outline-primary{ href: "https://drive.google.com/file/d/#{@lead.resourceable.view_url}/view", target: '_blank' }
+          download guide

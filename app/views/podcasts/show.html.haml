@@ -1,0 +1,10 @@
+.row.my-5
+  .col-12.col-md-4
+    = image_tag 'podcast_cover.jpeg', class: 'img-fluid'
+  .col-12.col-md-8
+    %h5.my-3 The Unapologetic Man Podcast
+    %h1.font-weight-bold
+      = @podcast.title
+    %p
+      = @podcast.description
+    = raw @podcast.embed_code

@@ -1,0 +1,61 @@
+= render 'shared/header', h1: 'Zapier Integration', h2: false, hero_id: 'dashboard-hero'
+
+.alert.alert-danger.font-weight-bold
+  The Zapier integration is in BETA.
+
+.row.my-5
+  .col-12
+    %h3
+      Using Zapier, you can integrate with thousands of Apps. 
+    %a{ href: 'https://zapier.com/learn/getting-started-guide/', target: '_blank' }
+      %p.font-italic If you're brand new to Zapier, you can read about it here.
+
+    %ol
+      %li.pt-3 Sign in to Zapier. 
+      %li.pt-3 
+        Find the 123 Lead Magnets App
+        %span.font-weight-bold This is in BETA. You must be granted access explicitly.  
+      %li.pt-3 Select "Authenticate via API Key". 
+      %li.pt-3 
+        Enter this API key:
+        .copyable-content-container.p-3
+          .row
+            .col-9
+              %code.p-0
+                .copyable-content
+                  = current_user.zapier_api_key
+            .col-3
+              .copy-link.btn.btn-primary.float-right
+                copy
+
+  -# .container
+  -#   .row.pb-5
+  -#     .col-12
+  -#       .py-5
+  -#         %table#landing-pages-table.table.table-hover
+  -#           %thead
+  -#             %tr
+  -#               %th Landing Page
+  -#               %th I
+  -#               %th UI
+  -#               %th #L
+  -#           %tbody
+  -#             - @landing_pages.each do |landing_page|
+  -#               %tr
+  -#                 %td
+  -#                   %a{ href: landing_page_path(landing_page) }
+  -#                     %p.mb-0= landing_page.name
+  -#                   %small.mb-0= landing_page.display_url
+  -#                 %td
+  -#                   = Ahoy::Event.where_properties(landing_page_id: landing_page.id).count
+  -#                 %td
+  -#                   = Ahoy::Event.where_properties(landing_page_id: landing_page.id).group_by(&:visit_id).count
+  -#                 %td
+  -#                   = landing_page.leads.count
+
+:javascript
+  if ( !document.querySelector( '#landing-pages-table_wrapper' ) ) {
+    var landingPagesTable = $('#landing-pages-table').DataTable({ 
+      pageLength: 25
+    });
+  }

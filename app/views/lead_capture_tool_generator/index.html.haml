@@ -1,0 +1,44 @@
+= render 'shared/header', h1: 'Landing Pages', h2: false, hero_id: 'dashboard-hero'
+
+= render 'shared/impressions_abbreviations_key'
+
+- if @lead_capture_tools.empty? 
+  .row.pb-5
+    .col-12
+      .jumbotron.text-center.my-3
+        %h3 You have not created any Landing Pages yet.
+        %p.mx-3.mb-0.pb-0 But fret not! That's what we're here for! 
+        %p.mx-3 Pick one of our Lead Magnets to create one now.
+        %a.btn.btn-outline-primary.btn-lg{ href: marketplace_path }
+          %span.font-weight-bold See All Lead Magnets
+
+- else 
+  .row.pb-5
+    .col-12
+      %table#landing-pages-table.table.table-hover
+        %thead
+          %tr
+            %th Landing Page
+            %th I
+            %th UI
+            %th #L
+        %tbody
+          - @lead_capture_tools.each do |lead_capture_tool|
+            %tr
+              %td
+                %a{ href: lead_capture_tool_path(lead_capture_tool) }
+                  %p.mb-0= lead_capture_tool.name
+                %small.mb-0= lead_capture_tool.display_url
+              %td
+                = Ahoy::Event.where_properties(lead_capture_tool_id: lead_capture_tool.id).count
+              %td
+                = Ahoy::Event.where_properties(lead_capture_tool_id: lead_capture_tool.id).group_by(&:visit_id).count
+              %td
+                = lead_capture_tool.leads.count
+
+:javascript
+  if ( !document.querySelector( '#landing-pages-table_wrapper' ) ) {
+    var landingPagesTable = $('#landing-pages-table').DataTable({ 
+      pageLength: 25
+    });
+  }

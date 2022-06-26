@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-10.col-md-12.text-md-center
+      .badge.p-0.m-0
+        Website Development Kit Roadmap
+      %h1= @roadmap.name
+
+.container
+  -# .row.my-5
+    -# .col-12.col-md-3
+    -#   %ul#myTab.nav.nav-pills.text-center.flex-column.mb-3{:role => "tablist", class: "#{@roadmap.slug}-pills" }
+    -#     %li.nav-item
+    -#       %a#introduction-tab.nav-link.active{"aria-controls" => "terms", "aria-selected" => "false", "data-toggle" => "tab", :href => "#introduction", :role => "tab"}
+    -#         .badge
+    -#           Home
+    -#     - @roadmap.course_modules.each do |roadmap_module|
+    -#       %li.nav-item
+    -#         %a.nav-link{ href: "/online-business-guide/#{@roadmap.slug}/#{roadmap_module.slug}"}
+    -#           .badge
+    -#             = roadmap_module.name
+  .row
+    - @roadmap.course_modules.each do |roadmap_module|
+      .col-12.col-sm-2.col-md-4
+        %a{ href: "/online-business-guide/#{@roadmap.slug}/#{roadmap_module.slug}"}
+          .basic-gradient.hover-border.my-3.p-3
+            %h5.font-weight-bold
+              = roadmap_module.name
+            = roadmap_module.description
+  -# .row
+  -#   .col-12.my-5
+  -#     = render 'website_development_kit/university'

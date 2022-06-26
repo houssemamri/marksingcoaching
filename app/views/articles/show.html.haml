@@ -1,0 +1,69 @@
+- content_for :meta_title, "#{@article.title} | #{DEFAULT_META["meta_title"]}"
+- content_for :meta_description, @article.headline
+- if @article.main_image.attachment
+  - content_for :meta_image, @article.main_image.service_url
+
+#fb-root
+%script{async: "", crossorigin: "anonymous", defer: "defer", nonce: "pDQNbKug", src: "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=281579746351265&autoLogAppEvents=1"}
+
+.container.mb-5.pb-5
+  .row.mb-md-5
+    -# .col-12.col-lg-8.offset-lg-2.my-5.text-center
+    .col-12.col-lg-6.order-2.order-lg-1
+      -# - if @article.main_image.attachment
+      .my-3.mb-md-0
+        = image_tag 'stock_2.jpg', class: 'img-fluid'
+        -# = image_tag @article.main_image.service_url, class: 'img-fluid'
+        -# %small= raw @article.main_image_credits
+    .col-12.col-lg-6.mt-md-5.order-1.order-lg-2
+      .align-middle
+        .badge.badge-primary Article
+        %h1.color-primary.font-weight-bold
+          %span 
+            = @article.title
+        - if @article.headline.present?
+          %h2.my-3
+            = @article.headline
+        -# %p.d-inline= "#{@article.time_to_read} min read on"
+        %p.d-inline= "3 min read"
+        - @article.tag_list.each do |tag|
+          .badge.badge-primary.d-inline= tag
+  - if @article.tldr.present?
+    .alert.alert-warning
+      .h4 tldr;
+      = @article.tldr
+  .article-section-wrap
+    .article-section
+      .container
+        .row
+          .col-12.col-lg-8.offset-lg-2
+            .my-3
+              .fb-like{"data-action": "like", "data-href": article_path(@article), "data-layout": "standard", "data-share": "true", "data-size": "large", style: 'min-height: 25px;'}
+            %article
+              = @article.description
+              = @article.content
+        .row
+          .col-12.col-lg-8.offset-lg-2
+            .hover-border.p-3.mt-5
+              %h4.mb-2 Welcome to Mark Sing Coaching
+              %p Thank you for checking out my content. If you want to FINALLY take your game to the next level, talk to me 1 on 1.
+              %p 
+              .text-center
+                %a.btn.btn-primary{:href => "/"}
+                  Start Now
+
+-# :javascript
+-#   function parallax_height() {
+-#     var scroll_top = $(this).scrollTop();
+-#     var article_section_top = $(".article-section").offset().top;
+-#     var header_height = $(".article-header-section").outerHeight();
+-#     $(".article-section").css({ "margin-top": header_height });
+-#     $(".article-header").css({ height: header_height - scroll_top });
+-#   }
+-#   parallax_height();
+-#   $(window).scroll(function () {
+-#     parallax_height();
+-#   });
+-#   $(window).resize(function () {
+-#     parallax_height();
+-#   });

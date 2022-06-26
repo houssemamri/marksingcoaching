@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @referred_user.email
+%p
+  %b Referral code:
+  = @referred_user.referral_code
+%p
+  %b Referrer:
+  = @referred_user.referrer_id
+
+= link_to 'Edit', edit_referred_user_path(@referred_user)
+\|
+= link_to 'Back', referred_users_path

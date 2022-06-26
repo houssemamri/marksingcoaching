@@ -1,0 +1,25 @@
+%h1 Listing referred_users
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th Referral code
+      %th Referrer
+      %th
+      %th
+      %th
+
+  %tbody
+    - @referred_users.each do |referred_user|
+      %tr
+        %td= referred_user.email
+        %td= referred_user.referral_code
+        %td= referred_user.referrer_id
+        %td= link_to 'Show', referred_user
+        %td= link_to 'Edit', edit_referred_user_path(referred_user)
+        %td= link_to 'Destroy', referred_user, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Referred user', new_referred_user_path

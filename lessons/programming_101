@@ -1,0 +1,139 @@
+Up until now, we've only touched on how we instruct hardware to do computational tasks. However, we don't always want to engage with the metal of the machine, so to speak. 
+
+Programming languages allow us additional layers of abstraction. Abstraction allows us to take shortcuts in doing common tasks. Simple example is addition. Most programming languages will allow you to do `1+1` and give you the result, 2. But this is an abstraction over the literal binary addition that the computer has to do. At this point, it's enough to understand this as fact. 
+
+The best way to understand code is to get into it. So let's do that. All of the examples will be in JavaScript. This is because it is incredibly popular, varsatile, and in style right now. 
+
+# VARIABLES AND BASIC DATA TYPES
+
+Let's start with the basics. Whenever you write code, you should expect the computer to take your syntax very literally. Syntax refers to the rules your code must obey in order to be considered valid. Essentially, you can't write something the computer doesn't know how to understand. Again, computers are dumb. 
+
+Let's start with the complete and utter basics of syntax. 
+
+Everything you type gets interpreted by the computer. 
+
+If you type the word "word", JavaScript is going to think that you are referencing a variable. Just like in math, a variable holds a value. In programming, variables can only be of a subset of different types: 
+
+var x = 5
+
+There. We just assigned an integer value of 5 to the variable x. Note the var keyword. It's a keyword because the program understands it as seperate from something else you type. It is a restricted set of characters - you can not give a variable the name var. 
+
+But wait. Hold up a sec. Before we go on any further, we need to acknowledge the fact that you’ve read your first lines of intelligible code! A small section of code is called a code block. Let's proceed. 
+
+var word = "Hello" 
+
+Here, we set the value of the variable word to the string value "Hello". Strings are a data type (like Integers) that allows you to type something that gets interpreted as raw text by the computer. In JavaScript, it is denoted with the quotes around the phrase. Here are some examples of Strings: 
+
+"Hello World!"
+"I am a string... hear me ROAR" 
+"Anything inside here is just text - is it not code and so can literally be anything."
+"kjlnfo3n4ot3nk4nkjrtn3f9w#$@%#kwjehfkwf"
+
+So! Now we know about variables. We also know that the can be Integers (Numbers) or Strings.
+
+But what good is a programming tutorial without a Hello World example? Here it is: 
+
+var saying = "Hello World!"
+console.log(saying)
+
+I purposely used a variable here to illustrate their utility. I could have just as easily done: 
+
+console.log("Hello World!")
+
+# MORE COMPLEX DATA TYPES
+
+MEME ABOUT QUESTION ON DAY OF VS QUESTION DAY OF EXAM
+
+Let's say you have a String and you wanted to get a particular character in it. When would you want to do this? Well, let's say that you have strings that look like this: 
+
+"1. Learn code"
+"2. Build things"
+"3. ???"
+"4. Profit"
+
+Getting the first character out of this string makes sense because it has meaning (the step number.) Strings can be thought of as an array of characters. In other words, "Hello" is really the sequence of characters "H", "e", "l", "l", "o". And so, each character has a position. "H" is first, "e" is second and so on and so forth. To get the first character in a string, you can write the following code: 
+
+"1. Learn code"[0]
+
+If the string were in a variable, it would be: 
+
+var firstStep = "1. Learn code" 
+firstStep[0]
+
+Both of these blocks of code will give you the value "1". Why do we use 0 instead of 1? In other words, why would I get a "." if I did: 
+
+"1. Learn code"[1]
+
+This is because of zero-indexing, or, the fact that the sequence of characters starts at 0. So:
+
+"1. Learn code"[0] 
+=> 1
+"1. Learn code"[1] 
+=> .
+"1. Learn code"[2] 
+=> 
+"1. Learn code"[3] 
+=> L
+"1. Learn code"[4] 
+=> e
+"1. Learn code"[5] 
+=> a
+
+and so on and so forth...
+
+This is not just a cool property of Strings. I walked you through this to introduce Arrays! Arrays are also a data type. They are essentially a sequence of elements - in other words, it's a list! Here is an array of letters: 
+
+var arrayOfLetters = ["A", "B", "C", "D"]
+
+To get its contents, I could do:
+
+arrayOfLetters[0] 
+=> A
+arrayOfLetters[1] 
+=> B
+
+Remember that Arrays are zero-indexed. 
+
+Array elements can be any other data type. So the following are all valid arrays: 
+
+["A", 1, "Hello", 309234, "cool"]
+["I get", "this ", "stuff", "!!!11111111"]
+
+Since Arrays are a data type, you can even have an Array of Arrays! Like this: 
+
+var arrayOfArrays = [ ["Array", 1], ["Another Array", 2] ]
+
+So, to get the first Array, I would do the following: 
+
+arrayOfArrays[0]
+=> ["Array", 1]
+
+I could also get the first element of the first array (woah, how incepting) by doing the following: 
+
+arrayOfArrays[0][0]
+=> Array
+
+Alright, we have Arrays in our toolset now! 
+
+8)
+
+Let's introduce another data type - the Hash. A hash is like an array, except that it's elements are not in sequence. It's not a list, it is just a set. Instead of refering to its elements via an index, you use a key. This is an example: 
+
+var contractor = {
+  name: "Bob", 
+  job: "Builder",
+  age: 30, 
+  tools: ["Hammer", "Nails"]
+}
+
+Referring to an item in the Hash is simply: 
+
+contractor.name
+=> "Bob"
+
+# if, else
+
+# Iteration
+
+# programming languages
+# programming paradigms 

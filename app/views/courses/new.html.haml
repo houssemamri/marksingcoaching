@@ -1,0 +1,12 @@
+.container
+  .row.mt-5
+    .col-12
+      %h1
+        = @course.name
+    .col-12
+      %p
+        = @course.description
+  .row
+    .col-12
+      %h1 New Course
+= render 'form', course: @course

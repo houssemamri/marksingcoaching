@@ -1,0 +1,17 @@
+= render 'shared/header', h1: 'Active Campaign Integration', h2: false
+
+.row.my-5
+  .col-12
+    %h3
+      Using Active Campaign, you can create tons of marketing automations. 
+    %a{ href: 'https://www.activecampaign.com/learn/manuals/getting-started-with-activecampaign/', target: '_blank' }
+      %p.font-italic If you're brand new to Active Campaign, you can read about it here.
+
+.row
+  .col-12
+    = semantic_form_for(current_user, url: integrations_update_path) do |f|
+      .field.form-group
+        = f.input :active_campaign_url, class: "form-control"
+        = f.input :active_campaign_api_key, class: "form-control"
+      .actions
+        = f.submit "Integrate", class: "btn btn-primary"

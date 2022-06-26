@@ -1,0 +1,17 @@
+.hero
+  .hero-content.py-5
+    .container
+      .row.pt-md-5.pb-md-1
+        .col-12.col-md-12.text-md-center
+          .badge.p-0.m-0
+            Online Business Guide
+          %h1= @course.name
+
+.container
+  .row
+    .col-12
+      %a{ href: '/online-business-guide' }
+        < back to Kit
+  .row
+    .col-12.my-5
+      = @course.description

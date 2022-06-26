@@ -1,0 +1,28 @@
+#sidebar-content
+  .border-left-primary.text-right
+    .p-1
+      %span
+        %a.font-weight-bold{ href: dashboard_path, 'data-toggle': 'tooltip', 'data-placement' => 'right', 'title': 'Home' }
+          Dashboard
+    .p-1
+      %span
+        %a.font-weight-bold{ href: articles_path, 'data-toggle': 'tooltip', 'data-placement' => 'right', 'title': 'Home' }
+          Articles
+    .p-1
+      %span
+        %a.font-weight-bold{ href: podcasts_path, 'data-toggle': 'tooltip', 'data-placement' => 'right', 'title': 'Home' }
+          Podcast
+    .p-1
+      %span
+        %a.font-weight-bold{ href: edit_user_registration_path, 'data-toggle': 'tooltip', 'data-placement' => 'right', 'title': 'User Settings' }
+          Settings
+    .p-1
+      = link_to destroy_user_session_path, method: :delete, 'data-toggle': 'tooltip', 'data-placement' => 'right', 'title': 'Sign Out' do 
+        %span.font-weight-bold
+          Log Out
+  
+-# :javascript 
+-#   $(function () {
+-#     $('[data-toggle="tooltip"]').tooltip({
+-#     })
+-#   })

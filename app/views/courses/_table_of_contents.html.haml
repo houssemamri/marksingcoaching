@@ -1,0 +1,16 @@
+%ol.table-of-contents
+  %li
+    - if (defined?(suppress_links))
+      Overview
+    - else
+      %a{ href: course_path(course) }
+        Overview
+  - course.course_modules.order(:sort).each do |cm|
+    %li.my-3
+      - if (defined?(suppress_links))
+        = cm.name
+      - else
+        %a{ href: course_course_module_path(course, cm) }
+          = cm.name
+      .pl-3
+        = cm.table_of_contents

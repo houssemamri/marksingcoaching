@@ -1,0 +1,59 @@
+
+#accordionExample.accordion
+  .card
+    #headingOne.card-header.collapsed{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-target" => "#collapseOne", "data-toggle" => "collapse"}
+      %p.color-primary.font-weight-bold.mb-0
+        Is this for me? How do I know it will help me?
+    #collapseOne.collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample"}
+      .card-body
+        %p If:
+        %ul
+          %li 
+            You don't want to invest time creating your own Lead Magnets. Any reason is valid here but may include:
+            %ul 
+              %li you want to focus on developing your actual product/service. 
+              %li you want to test your ideas first or you haven't validated your business idea yet.
+              %li you want a wide array of Lead Magnet options.
+          %li 
+            You want simple and elegant tools to use said Lead Magnets. 
+          %li 
+            You want to collect leads at scale. 
+          %li 
+            You want to simplify your entrepreneurial journey.
+        %p.mb-0 This is for you. 
+
+  -# .card
+  -#   #headingTwo.card-header.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-target" => "#collapseTwo", "data-toggle" => "collapse", onclick: 'loadLeadMagnets()'}
+  -#     %p.color-primary.font-weight-bold.mb-0
+  -#       What Lead Magnets do you offer? Can I see a list?
+  -#   #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionExample"}
+  -#     .card-body
+  -#       %p 
+  -#         No doubt. Here it is:
+  -#       #ebook-list-container 
+  -#         .text-center
+  -#           = image_tag 'spinner.gif', width: 40
+  -#           .badge Loading...
+
+  -# .card
+  -#   #headingThree.card-header.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-target" => "#collapseThree", "data-toggle" => "collapse"}
+  -#     %p.color-primary.font-weight-bold.mb-0
+  -#       How customizable are the Landing Pages?
+  -#   #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
+  -#     .card-body
+  -#       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+  .card
+    #contact.card-header.collapsed{"aria-controls" => "collapseContact", "aria-expanded" => "false", "data-target" => "#collapseContact", "data-toggle" => "collapse"}
+      %p.color-primary.font-weight-bold.mb-0
+        My question isn't here - can I contact you?
+    #collapseContact.collapse{"aria-labelledby" => "contact", "data-parent" => "#accordionExample"}
+      .card-body
+        %p
+          Of course. Please do. You can email us at 
+          %a{ href: 'mailto:us@123leadmagnets.com', target: '_blank' } 
+            us@123leadmagnets.com
+          or call/text at
+          %a{ href: 'tel:+1-201-834-6550‬' } 
+            ‪+1 (201) 834-6550.
+        %p.mb-0 We're here to help - whatever you need.

@@ -1,0 +1,46 @@
+.container
+  .row
+    .col-12.text-center
+      .gradient-primary 
+        %h1.font-weight-bold Welcome to Mark Sing Coaching
+      %h2.my-3 Helping Entrepreneurs, Go-Getters, and Growth-Oriented Men Meet and Date More Women
+      .btn.btn-primary.btn-lg
+        Apply for Coaching
+
+  .row.my-5
+    .col-12.text-center
+      %h3.my-3 The Unapologetic Man Podcast
+    .col-12.col-md-4
+      = image_tag 'podcast_cover.jpeg', class: 'img-fluid'
+    .col-12.col-md-8.mt-3
+      %p The Unapologetic Man Podcast was created to help men like you rediscover your masculine instincts and use them to attract women.
+      %p I work hard to give value-packed content with zero fluff … commercials … or wasted time. 
+      %p As men we ACT. 
+      %p So this podcast gets straight to the point by delivering super high quality content in digestible, 20-minute episodes.  
+      %a{ href: podcasts_path }
+        .btn.btn-outline-primary Listen Now
+        
+  .row.my-5
+    .col-12.text-center
+      %h3.my-3 Articles
+    .col-12.col-md-6
+      %a.w-100.my-3{ href: article_path(@articles.first) }
+        = image_tag("stock_1.jpg", class: 'img-fluid')
+        %h4.my-3.mx-5
+          = @articles.first.title
+    .col-12.col-md-6
+      %a.w-100.my-3{ href: article_path(@articles.second) }
+        = image_tag("stock_2.jpg", class: 'img-fluid')
+        %h4.my-3.mx-5
+          = @articles.second.title
+
+
+-# .container
+-#   .row.align-items-center
+-#     .col-12.col-lg-9.my-5
+-#       .gradient-primary 
+-#         %h3.font-weight-bold Try our new content and lead magnet title generator. 
+-#       %p Answer a couple of short questions and we can generate hundreds of content and lead magnet ideas for you!
+-#     .col-12.col-lg-3
+-#       %a.btn.btn-primary.py-3.px-5.mb-2{ href: '/content-generator/new'}
+-#         Get Ideas >

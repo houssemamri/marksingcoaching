@@ -1,0 +1,56 @@
+= render 'shared/header', h1: 'University', h2: false, hero_id: 'university-hero'
+.mt-3
+  .row
+    .col-12
+      %h3.border-bottom.mt-3.font-weight-bold Marketing
+    .col-12
+      = render '/courses/course', course: @bonus_courses.friendly.find('generating-leads'), octicon_for_course: "megaphone"
+      = render '/courses/course', course: Course.friendly.find('finding-your-niche'), octicon_for_course: "milestone"
+
+  .row
+    .col-12
+      %h3.border-bottom.mt-3.font-weight-bold Social Media
+    .col-12
+      = render '/courses/course', course: @oto_courses.friendly.find('running-facebook-ads'), octicon_for_course: "thumbsup", locked: @can_access_social_media_courses
+      = render '/courses/course', course: @oto_courses.friendly.find('running-instagram-ads'), octicon_for_course: "thumbsup", locked: @can_access_social_media_courses
+      = render '/courses/course', course: @oto_courses.friendly.find('running-tik-tok-ads'), octicon_for_course: "thumbsup", locked: @can_access_social_media_courses
+
+  -# .row
+  -#   .col-12
+  -#     %h3.border-bottom.mt-3.font-weight-bold Shopify
+  -#   .col-12
+  -#     = render '/courses/course', course: @courses.friendly.find('shopify-blueprint'), octicon_for_course: "map", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('shopify-traffic'), octicon_for_course: "rocket", locked: @can_access_social_media_courses
+
+  -# .row
+  -#   .col-12
+  -#     %h3.border-bottom.mt-3.font-weight-bold Wordpress
+  -#   .col-12
+  -#     = render '/courses/course', course: @courses.friendly.find('getting-started-with-wordpress'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('learn-gutenberg'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('boosting-wordpress-traffic'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('how-to-build-wordpress-plugins'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('advanced-wordpress'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('wordpress-membership-site-kick-start'), octicon_for_course: "wordpress", locked: @can_access_social_media_courses
+
+  -# .row
+  -#   .col-12
+  -#     %h3.border-bottom.mt-3.font-weight-bold Affiliate Marketing
+  -#   .col-12
+  -#     = render '/courses/course', course: @courses.friendly.find('amazon-fba-guide'), octicon_for_course: "amazon", locked: @can_access_social_media_courses
+
+  -# .row
+  -#   .col-12
+  -#     %h3.border-bottom.mt-3.font-weight-bold SEO
+  -#   .col-12
+  -#     = render '/courses/course', course: @courses.friendly.find('page-seo-blueprint'), octicon_for_course: "search", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('site-speed-secrets'), octicon_for_course: "tachometer", locked: @can_access_social_media_courses
+      
+  -# .row
+  -#   .col-12
+  -#     %h3.border-bottom.mt-3.font-weight-bold Development
+  -#   .col-12
+  -#     = render '/courses/course', course: @courses.friendly.find('master-html5'), octicon_for_course: "html5", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('master-css3'), octicon_for_course: "css3", locked: @can_access_social_media_courses
+  -#     = render '/courses/course', course: @courses.friendly.find('bootstrap-walkthrough'), octicon_for_course: "code", locked: @can_access_social_media_courses
+      

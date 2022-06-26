@@ -1,0 +1,41 @@
+.container
+  .row.align-content-center.py-3
+    .col-9
+      .mb-3
+        .badge.badge-primary Landing Page
+        %h1.super-bold
+          = @lead_capture_tool.name
+        %p
+          for: 
+          %span.font-weight-bold= @lead_capture_tool.lead_magnet.title
+    .col-3
+      %a.btn.btn-outline-primary.btn-block{ href: @lead_capture_tool.display_url, target: '_blank' }
+        = octicon 'eye'
+      %a.btn.btn-outline-primary.btn-block{ href: edit_lead_capture_tool_path(@lead_capture_tool) }
+        = octicon 'pencil'
+
+
+.container
+  .row
+    .col-12.my-3
+      .hover-border.p-3
+        .badge.mb-3 Total Visits Per Day
+        = line_chart @events.group_by_day(:time).count
+    .col-12.my-3
+      .hover-border.p-3
+        .badge.mb-3 Unique Visits Per Day
+        = line_chart @visits.group_by_day(:started_at).count
+  -# .row
+  -#   .col-6
+  -#     .hover-border
+  -#       .badge Views Per Day
+
+
+-# .landing-page-preview-container.my-3
+-#   .container{ style: 'max-width: 1500px;min-height: 80vh;' }
+-#     .row
+-#       .col-12
+-#         %p.font-weight-bold Preview:
+-#       .col-12
+-#         .hover-border
+-#           %iframe.w-100.p-0.m-0.d-block{ src: @lead_capture_tool.display_url }
